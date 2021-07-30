@@ -1,11 +1,11 @@
 <?php
 /**
- * SalesTaxJurisdiction
+ * ProductAdoptionPolicyResponse
  *
  * PHP version 7.2
  *
  * @category Class
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Metadata
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -29,30 +29,30 @@
 namespace Ebay\Sell\Metadata\Model;
 
 use \ArrayAccess;
-use \Ebay\Sell\ObjectSerializer;
+use \Ebay\Sell\Metadata\ObjectSerializer;
 
 /**
- * SalesTaxJurisdiction Class Doc Comment
+ * ProductAdoptionPolicyResponse Class Doc Comment
  *
  * @category Class
- * @description A unique ID for a sales tax jurisdiction.
- * @package  Ebay\Sell
+ * @description This is the response object returned by a call to getProductAdoptionPolicies.
+ * @package  Ebay\Sell\Metadata
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class SalesTaxJurisdiction implements ModelInterface, ArrayAccess, \JsonSerializable
+class ProductAdoptionPolicyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SalesTaxJurisdiction';
+    protected static $openAPIModelName = 'ProductAdoptionPolicyResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,7 +60,8 @@ class SalesTaxJurisdiction implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
-        'sales_tax_jurisdiction_id' => 'string'
+        'product_adoption_policies' => '\Ebay\Sell\Metadata\Model\ProductAdoptionPolicy[]',
+        'warnings' => '\Ebay\Sell\Metadata\Model\Error[]'
     ];
 
     /**
@@ -71,7 +72,8 @@ class SalesTaxJurisdiction implements ModelInterface, ArrayAccess, \JsonSerializ
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'sales_tax_jurisdiction_id' => null
+        'product_adoption_policies' => null,
+        'warnings' => null
     ];
 
     /**
@@ -101,7 +103,8 @@ class SalesTaxJurisdiction implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $attributeMap = [
-        'sales_tax_jurisdiction_id' => 'salesTaxJurisdictionId'
+        'product_adoption_policies' => 'productAdoptionPolicies',
+        'warnings' => 'warnings'
     ];
 
     /**
@@ -110,7 +113,8 @@ class SalesTaxJurisdiction implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $setters = [
-        'sales_tax_jurisdiction_id' => 'setSalesTaxJurisdictionId'
+        'product_adoption_policies' => 'setProductAdoptionPolicies',
+        'warnings' => 'setWarnings'
     ];
 
     /**
@@ -119,7 +123,8 @@ class SalesTaxJurisdiction implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $getters = [
-        'sales_tax_jurisdiction_id' => 'getSalesTaxJurisdictionId'
+        'product_adoption_policies' => 'getProductAdoptionPolicies',
+        'warnings' => 'getWarnings'
     ];
 
     /**
@@ -179,7 +184,8 @@ class SalesTaxJurisdiction implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function __construct(array $data = null)
     {
-        $this->container['sales_tax_jurisdiction_id'] = isset($data['sales_tax_jurisdiction_id']) ? $data['sales_tax_jurisdiction_id'] : null;
+        $this->container['product_adoption_policies'] = $data['product_adoption_policies'] ?? null;
+        $this->container['warnings'] = $data['warnings'] ?? null;
     }
 
     /**
@@ -207,25 +213,49 @@ class SalesTaxJurisdiction implements ModelInterface, ArrayAccess, \JsonSerializ
 
 
     /**
-     * Gets sales_tax_jurisdiction_id
+     * Gets product_adoption_policies
      *
-     * @return string|null
+     * @return \Ebay\Sell\Metadata\Model\ProductAdoptionPolicy[]|null
      */
-    public function getSalesTaxJurisdictionId()
+    public function getProductAdoptionPolicies()
     {
-        return $this->container['sales_tax_jurisdiction_id'];
+        return $this->container['product_adoption_policies'];
     }
 
     /**
-     * Sets sales_tax_jurisdiction_id
+     * Sets product_adoption_policies
      *
-     * @param string|null $sales_tax_jurisdiction_id The unique ID for a sales tax jurisdiction.
+     * @param \Ebay\Sell\Metadata\Model\ProductAdoptionPolicy[]|null $product_adoption_policies A list of category IDs from the marketplace specified in the request where each returned element represents a leaf node in the category tree. Each element in the list contains the policies governing whether or not items listed in that category must include an ePID value (which links the item to the eBay Catalog).
      *
      * @return self
      */
-    public function setSalesTaxJurisdictionId($sales_tax_jurisdiction_id)
+    public function setProductAdoptionPolicies($product_adoption_policies)
     {
-        $this->container['sales_tax_jurisdiction_id'] = $sales_tax_jurisdiction_id;
+        $this->container['product_adoption_policies'] = $product_adoption_policies;
+
+        return $this;
+    }
+
+    /**
+     * Gets warnings
+     *
+     * @return \Ebay\Sell\Metadata\Model\Error[]|null
+     */
+    public function getWarnings()
+    {
+        return $this->container['warnings'];
+    }
+
+    /**
+     * Sets warnings
+     *
+     * @param \Ebay\Sell\Metadata\Model\Error[]|null $warnings A list of the warnings that were generated as a result of the request. This field is not returned if no warnings were generated by the request.
+     *
+     * @return self
+     */
+    public function setWarnings($warnings)
+    {
+        $this->container['warnings'] = $warnings;
 
         return $this;
     }
@@ -250,7 +280,7 @@ class SalesTaxJurisdiction implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**

@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Metadata
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Please update the test case below to test the model.
  */
 
-namespace Ebay\Sell\Test\Model;
+namespace Ebay\Sell\Metadata\Test\Model;
 
 use PHPUnit\Framework\TestCase;
 
@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @category    Class
  * @description This complex type returns a category ID and a flag that indicates whether or not items listed in that category require the declaration of an ePID value, which links the item to the eBay Catalog. The type also lists any items that are excepted from the requirement to included an ePID value.
- * @package     Ebay\Sell
+ * @package     Ebay\Sell\Metadata
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */

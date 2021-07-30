@@ -1,11 +1,11 @@
 <?php
 /**
- * ReturnPolicyDetails
+ * ReturnPolicy
  *
  * PHP version 7.2
  *
  * @category Class
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Metadata
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -29,30 +29,29 @@
 namespace Ebay\Sell\Metadata\Model;
 
 use \ArrayAccess;
-use \Ebay\Sell\ObjectSerializer;
+use \Ebay\Sell\Metadata\ObjectSerializer;
 
 /**
- * ReturnPolicyDetails Class Doc Comment
+ * ReturnPolicy Class Doc Comment
  *
  * @category Class
- * @description This container defines the category policies that relate to domestic and international return policies (the return shipping is made via a domestic or an international shipping service, respectively).
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Metadata
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ReturnPolicyDetails implements ModelInterface, ArrayAccess, \JsonSerializable
+class ReturnPolicy implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ReturnPolicyDetails';
+    protected static $openAPIModelName = 'ReturnPolicy';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,12 +59,11 @@ class ReturnPolicyDetails implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'policy_description_enabled' => 'bool',
-        'refund_methods' => 'string[]',
-        'return_methods' => 'string[]',
-        'return_periods' => '\Ebay\Sell\Metadata\Model\TimeDuration[]',
-        'returns_acceptance_enabled' => 'bool',
-        'return_shipping_cost_payers' => 'string[]'
+        'category_id' => 'string',
+        'category_tree_id' => 'string',
+        'domestic' => '\Ebay\Sell\Metadata\Model\ReturnPolicyDetails',
+        'international' => '\Ebay\Sell\Metadata\Model\ReturnPolicyDetails',
+        'required' => 'bool'
     ];
 
     /**
@@ -76,12 +74,11 @@ class ReturnPolicyDetails implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'policy_description_enabled' => null,
-        'refund_methods' => null,
-        'return_methods' => null,
-        'return_periods' => null,
-        'returns_acceptance_enabled' => null,
-        'return_shipping_cost_payers' => null
+        'category_id' => null,
+        'category_tree_id' => null,
+        'domestic' => null,
+        'international' => null,
+        'required' => null
     ];
 
     /**
@@ -111,12 +108,11 @@ class ReturnPolicyDetails implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'policy_description_enabled' => 'policyDescriptionEnabled',
-        'refund_methods' => 'refundMethods',
-        'return_methods' => 'returnMethods',
-        'return_periods' => 'returnPeriods',
-        'returns_acceptance_enabled' => 'returnsAcceptanceEnabled',
-        'return_shipping_cost_payers' => 'returnShippingCostPayers'
+        'category_id' => 'categoryId',
+        'category_tree_id' => 'categoryTreeId',
+        'domestic' => 'domestic',
+        'international' => 'international',
+        'required' => 'required'
     ];
 
     /**
@@ -125,12 +121,11 @@ class ReturnPolicyDetails implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'policy_description_enabled' => 'setPolicyDescriptionEnabled',
-        'refund_methods' => 'setRefundMethods',
-        'return_methods' => 'setReturnMethods',
-        'return_periods' => 'setReturnPeriods',
-        'returns_acceptance_enabled' => 'setReturnsAcceptanceEnabled',
-        'return_shipping_cost_payers' => 'setReturnShippingCostPayers'
+        'category_id' => 'setCategoryId',
+        'category_tree_id' => 'setCategoryTreeId',
+        'domestic' => 'setDomestic',
+        'international' => 'setInternational',
+        'required' => 'setRequired'
     ];
 
     /**
@@ -139,12 +134,11 @@ class ReturnPolicyDetails implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'policy_description_enabled' => 'getPolicyDescriptionEnabled',
-        'refund_methods' => 'getRefundMethods',
-        'return_methods' => 'getReturnMethods',
-        'return_periods' => 'getReturnPeriods',
-        'returns_acceptance_enabled' => 'getReturnsAcceptanceEnabled',
-        'return_shipping_cost_payers' => 'getReturnShippingCostPayers'
+        'category_id' => 'getCategoryId',
+        'category_tree_id' => 'getCategoryTreeId',
+        'domestic' => 'getDomestic',
+        'international' => 'getInternational',
+        'required' => 'getRequired'
     ];
 
     /**
@@ -204,12 +198,11 @@ class ReturnPolicyDetails implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['policy_description_enabled'] = isset($data['policy_description_enabled']) ? $data['policy_description_enabled'] : null;
-        $this->container['refund_methods'] = isset($data['refund_methods']) ? $data['refund_methods'] : null;
-        $this->container['return_methods'] = isset($data['return_methods']) ? $data['return_methods'] : null;
-        $this->container['return_periods'] = isset($data['return_periods']) ? $data['return_periods'] : null;
-        $this->container['returns_acceptance_enabled'] = isset($data['returns_acceptance_enabled']) ? $data['returns_acceptance_enabled'] : null;
-        $this->container['return_shipping_cost_payers'] = isset($data['return_shipping_cost_payers']) ? $data['return_shipping_cost_payers'] : null;
+        $this->container['category_id'] = $data['category_id'] ?? null;
+        $this->container['category_tree_id'] = $data['category_tree_id'] ?? null;
+        $this->container['domestic'] = $data['domestic'] ?? null;
+        $this->container['international'] = $data['international'] ?? null;
+        $this->container['required'] = $data['required'] ?? null;
     }
 
     /**
@@ -237,145 +230,121 @@ class ReturnPolicyDetails implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets policy_description_enabled
+     * Gets category_id
+     *
+     * @return string|null
+     */
+    public function getCategoryId()
+    {
+        return $this->container['category_id'];
+    }
+
+    /**
+     * Sets category_id
+     *
+     * @param string|null $category_id The category ID to which the return policies apply.
+     *
+     * @return self
+     */
+    public function setCategoryId($category_id)
+    {
+        $this->container['category_id'] = $category_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets category_tree_id
+     *
+     * @return string|null
+     */
+    public function getCategoryTreeId()
+    {
+        return $this->container['category_tree_id'];
+    }
+
+    /**
+     * Sets category_tree_id
+     *
+     * @param string|null $category_tree_id A value that indicates the root node of the category tree used for the response set. Each marketplace is based on a category tree whose root node is indicated by this unique category ID value. All category policy information returned by this call pertains to the categories included below this root node of the tree. A category tree is a hierarchical framework of eBay categories that begins at the root node of the tree and extends to include all the child nodes in the tree. Each child node in the tree is an eBay category that is represented by a unique categoryId value. Within a category tree, the root node has no parent node and leaf nodes are nodes that have no child nodes.
+     *
+     * @return self
+     */
+    public function setCategoryTreeId($category_tree_id)
+    {
+        $this->container['category_tree_id'] = $category_tree_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets domestic
+     *
+     * @return \Ebay\Sell\Metadata\Model\ReturnPolicyDetails|null
+     */
+    public function getDomestic()
+    {
+        return $this->container['domestic'];
+    }
+
+    /**
+     * Sets domestic
+     *
+     * @param \Ebay\Sell\Metadata\Model\ReturnPolicyDetails|null $domestic domestic
+     *
+     * @return self
+     */
+    public function setDomestic($domestic)
+    {
+        $this->container['domestic'] = $domestic;
+
+        return $this;
+    }
+
+    /**
+     * Gets international
+     *
+     * @return \Ebay\Sell\Metadata\Model\ReturnPolicyDetails|null
+     */
+    public function getInternational()
+    {
+        return $this->container['international'];
+    }
+
+    /**
+     * Sets international
+     *
+     * @param \Ebay\Sell\Metadata\Model\ReturnPolicyDetails|null $international international
+     *
+     * @return self
+     */
+    public function setInternational($international)
+    {
+        $this->container['international'] = $international;
+
+        return $this;
+    }
+
+    /**
+     * Gets required
      *
      * @return bool|null
      */
-    public function getPolicyDescriptionEnabled()
+    public function getRequired()
     {
-        return $this->container['policy_description_enabled'];
+        return $this->container['required'];
     }
 
     /**
-     * Sets policy_description_enabled
+     * Sets required
      *
-     * @param bool|null $policy_description_enabled If set to true, this flag indicates you can supply a detailed return policy description within your return policy (for example, by populating the returnInstructions field in the Account API's createReturnPolicy). User-supplied return policy details are allowed only in the DE, ES, FR, and IT marketplaces.
+     * @param bool|null $required If set to true, this flag indicates that you must specify a return policy for items listed in the associated category. Note that not accepting returns (setting returnsAcceptedEnabled to false) is a valid return policy.
      *
      * @return self
      */
-    public function setPolicyDescriptionEnabled($policy_description_enabled)
+    public function setRequired($required)
     {
-        $this->container['policy_description_enabled'] = $policy_description_enabled;
-
-        return $this;
-    }
-
-    /**
-     * Gets refund_methods
-     *
-     * @return string[]|null
-     */
-    public function getRefundMethods()
-    {
-        return $this->container['refund_methods'];
-    }
-
-    /**
-     * Sets refund_methods
-     *
-     * @param string[]|null $refund_methods A list of refund methods allowed for the associated category.
-     *
-     * @return self
-     */
-    public function setRefundMethods($refund_methods)
-    {
-        $this->container['refund_methods'] = $refund_methods;
-
-        return $this;
-    }
-
-    /**
-     * Gets return_methods
-     *
-     * @return string[]|null
-     */
-    public function getReturnMethods()
-    {
-        return $this->container['return_methods'];
-    }
-
-    /**
-     * Sets return_methods
-     *
-     * @param string[]|null $return_methods A list of return methods allowed for the associated category.
-     *
-     * @return self
-     */
-    public function setReturnMethods($return_methods)
-    {
-        $this->container['return_methods'] = $return_methods;
-
-        return $this;
-    }
-
-    /**
-     * Gets return_periods
-     *
-     * @return \Ebay\Sell\Metadata\Model\TimeDuration[]|null
-     */
-    public function getReturnPeriods()
-    {
-        return $this->container['return_periods'];
-    }
-
-    /**
-     * Sets return_periods
-     *
-     * @param \Ebay\Sell\Metadata\Model\TimeDuration[]|null $return_periods A list of return periods allowed for the associated category. Note that different APIs require you to enter the return period in different ways. For example, the Account API uses the complex TimeDuration type, which takes two values (a unit and a value), whereas the Trading API takes a single value (such as Days_30).
-     *
-     * @return self
-     */
-    public function setReturnPeriods($return_periods)
-    {
-        $this->container['return_periods'] = $return_periods;
-
-        return $this;
-    }
-
-    /**
-     * Gets returns_acceptance_enabled
-     *
-     * @return bool|null
-     */
-    public function getReturnsAcceptanceEnabled()
-    {
-        return $this->container['returns_acceptance_enabled'];
-    }
-
-    /**
-     * Sets returns_acceptance_enabled
-     *
-     * @param bool|null $returns_acceptance_enabled If set to true, this flag indicates the seller can configure how they handle domestic returns.
-     *
-     * @return self
-     */
-    public function setReturnsAcceptanceEnabled($returns_acceptance_enabled)
-    {
-        $this->container['returns_acceptance_enabled'] = $returns_acceptance_enabled;
-
-        return $this;
-    }
-
-    /**
-     * Gets return_shipping_cost_payers
-     *
-     * @return string[]|null
-     */
-    public function getReturnShippingCostPayers()
-    {
-        return $this->container['return_shipping_cost_payers'];
-    }
-
-    /**
-     * Sets return_shipping_cost_payers
-     *
-     * @param string[]|null $return_shipping_cost_payers A list of allowed values for who pays for the return shipping cost. Note that for SNAD returns, the seller is always responsible for the return shipping cost.
-     *
-     * @return self
-     */
-    public function setReturnShippingCostPayers($return_shipping_cost_payers)
-    {
-        $this->container['return_shipping_cost_payers'] = $return_shipping_cost_payers;
+        $this->container['required'] = $required;
 
         return $this;
     }
@@ -400,7 +369,7 @@ class ReturnPolicyDetails implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**

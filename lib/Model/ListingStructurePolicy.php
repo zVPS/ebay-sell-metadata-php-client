@@ -1,11 +1,11 @@
 <?php
 /**
- * AutomotivePartsCompatibilityPolicyResponse
+ * ListingStructurePolicy
  *
  * PHP version 7.2
  *
  * @category Class
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Metadata
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -29,29 +29,29 @@
 namespace Ebay\Sell\Metadata\Model;
 
 use \ArrayAccess;
-use \Ebay\Sell\ObjectSerializer;
+use \Ebay\Sell\Metadata\ObjectSerializer;
 
 /**
- * AutomotivePartsCompatibilityPolicyResponse Class Doc Comment
+ * ListingStructurePolicy Class Doc Comment
  *
  * @category Class
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Metadata
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class AutomotivePartsCompatibilityPolicyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class ListingStructurePolicy implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $openAPIModelName = 'AutomotivePartsCompatibilityPolicyResponse';
+    protected static $openAPIModelName = 'ListingStructurePolicy';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,8 +59,9 @@ class AutomotivePartsCompatibilityPolicyResponse implements ModelInterface, Arra
       * @var string[]
       */
     protected static $openAPITypes = [
-        'automotive_parts_compatibility_policies' => '\Ebay\Sell\Metadata\Model\AutomotivePartsCompatibilityPolicy[]',
-        'warnings' => '\Ebay\Sell\Metadata\Model\Error[]'
+        'category_id' => 'string',
+        'category_tree_id' => 'string',
+        'variations_supported' => 'bool'
     ];
 
     /**
@@ -71,8 +72,9 @@ class AutomotivePartsCompatibilityPolicyResponse implements ModelInterface, Arra
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'automotive_parts_compatibility_policies' => null,
-        'warnings' => null
+        'category_id' => null,
+        'category_tree_id' => null,
+        'variations_supported' => null
     ];
 
     /**
@@ -102,8 +104,9 @@ class AutomotivePartsCompatibilityPolicyResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $attributeMap = [
-        'automotive_parts_compatibility_policies' => 'automotivePartsCompatibilityPolicies',
-        'warnings' => 'warnings'
+        'category_id' => 'categoryId',
+        'category_tree_id' => 'categoryTreeId',
+        'variations_supported' => 'variationsSupported'
     ];
 
     /**
@@ -112,8 +115,9 @@ class AutomotivePartsCompatibilityPolicyResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $setters = [
-        'automotive_parts_compatibility_policies' => 'setAutomotivePartsCompatibilityPolicies',
-        'warnings' => 'setWarnings'
+        'category_id' => 'setCategoryId',
+        'category_tree_id' => 'setCategoryTreeId',
+        'variations_supported' => 'setVariationsSupported'
     ];
 
     /**
@@ -122,8 +126,9 @@ class AutomotivePartsCompatibilityPolicyResponse implements ModelInterface, Arra
      * @var string[]
      */
     protected static $getters = [
-        'automotive_parts_compatibility_policies' => 'getAutomotivePartsCompatibilityPolicies',
-        'warnings' => 'getWarnings'
+        'category_id' => 'getCategoryId',
+        'category_tree_id' => 'getCategoryTreeId',
+        'variations_supported' => 'getVariationsSupported'
     ];
 
     /**
@@ -183,8 +188,9 @@ class AutomotivePartsCompatibilityPolicyResponse implements ModelInterface, Arra
      */
     public function __construct(array $data = null)
     {
-        $this->container['automotive_parts_compatibility_policies'] = isset($data['automotive_parts_compatibility_policies']) ? $data['automotive_parts_compatibility_policies'] : null;
-        $this->container['warnings'] = isset($data['warnings']) ? $data['warnings'] : null;
+        $this->container['category_id'] = $data['category_id'] ?? null;
+        $this->container['category_tree_id'] = $data['category_tree_id'] ?? null;
+        $this->container['variations_supported'] = $data['variations_supported'] ?? null;
     }
 
     /**
@@ -212,49 +218,73 @@ class AutomotivePartsCompatibilityPolicyResponse implements ModelInterface, Arra
 
 
     /**
-     * Gets automotive_parts_compatibility_policies
+     * Gets category_id
      *
-     * @return \Ebay\Sell\Metadata\Model\AutomotivePartsCompatibilityPolicy[]|null
+     * @return string|null
      */
-    public function getAutomotivePartsCompatibilityPolicies()
+    public function getCategoryId()
     {
-        return $this->container['automotive_parts_compatibility_policies'];
+        return $this->container['category_id'];
     }
 
     /**
-     * Sets automotive_parts_compatibility_policies
+     * Sets category_id
      *
-     * @param \Ebay\Sell\Metadata\Model\AutomotivePartsCompatibilityPolicy[]|null $automotive_parts_compatibility_policies A list of category IDs and the automotive-parts-compatibility policies for each of the listed categories.
+     * @param string|null $category_id The category ID to which the listing-structure policy applies.
      *
      * @return self
      */
-    public function setAutomotivePartsCompatibilityPolicies($automotive_parts_compatibility_policies)
+    public function setCategoryId($category_id)
     {
-        $this->container['automotive_parts_compatibility_policies'] = $automotive_parts_compatibility_policies;
+        $this->container['category_id'] = $category_id;
 
         return $this;
     }
 
     /**
-     * Gets warnings
+     * Gets category_tree_id
      *
-     * @return \Ebay\Sell\Metadata\Model\Error[]|null
+     * @return string|null
      */
-    public function getWarnings()
+    public function getCategoryTreeId()
     {
-        return $this->container['warnings'];
+        return $this->container['category_tree_id'];
     }
 
     /**
-     * Sets warnings
+     * Sets category_tree_id
      *
-     * @param \Ebay\Sell\Metadata\Model\Error[]|null $warnings A list of the warnings that were generated as a result of the request. This field is not returned if no warnings were generated by the request.
+     * @param string|null $category_tree_id A value that indicates the root node of the category tree used for the response set. Each marketplace is based on a category tree whose root node is indicated by this unique category ID value. All category policy information returned by this call pertains to the categories included below this root node of the tree. A category tree is a hierarchical framework of eBay categories that begins at the root node of the tree and extends to include all the child nodes in the tree. Each child node in the tree is an eBay category that is represented by a unique categoryId value. Within a category tree, the root node has no parent node and leaf nodes are nodes that have no child nodes.
      *
      * @return self
      */
-    public function setWarnings($warnings)
+    public function setCategoryTreeId($category_tree_id)
     {
-        $this->container['warnings'] = $warnings;
+        $this->container['category_tree_id'] = $category_tree_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets variations_supported
+     *
+     * @return bool|null
+     */
+    public function getVariationsSupported()
+    {
+        return $this->container['variations_supported'];
+    }
+
+    /**
+     * Sets variations_supported
+     *
+     * @param bool|null $variations_supported This flag denotes whether or not the associated category supports listings with item variations. If set to true, the category does support item variations.
+     *
+     * @return self
+     */
+    public function setVariationsSupported($variations_supported)
+    {
+        $this->container['variations_supported'] = $variations_supported;
 
         return $this;
     }
@@ -279,7 +309,7 @@ class AutomotivePartsCompatibilityPolicyResponse implements ModelInterface, Arra
      */
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**

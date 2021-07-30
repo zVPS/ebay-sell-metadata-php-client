@@ -1,11 +1,11 @@
 <?php
 /**
- * ProductAdoptionPolicy
+ * ItemCondition
  *
  * PHP version 7.2
  *
  * @category Class
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Metadata
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -29,30 +29,30 @@
 namespace Ebay\Sell\Metadata\Model;
 
 use \ArrayAccess;
-use \Ebay\Sell\ObjectSerializer;
+use \Ebay\Sell\Metadata\ObjectSerializer;
 
 /**
- * ProductAdoptionPolicy Class Doc Comment
+ * ItemCondition Class Doc Comment
  *
  * @category Class
- * @description This complex type returns a category ID and a flag that indicates whether or not items listed in that category require the declaration of an ePID value, which links the item to the eBay Catalog. The type also lists any items that are excepted from the requirement to included an ePID value.
- * @package  Ebay\Sell
+ * @description &lt;span class&#x3D;\&quot;tablenote\&quot;&gt;&lt;b&gt;Note: &lt;/b&gt;In all eBay marketplaces, Condition ID 2000 now maps to an item condition of &#39;Certified Refurbished&#39;, and not &#39;Manufacturer Refurbished&#39;. To list an item as &#39;Certified Refurbished&#39;, a seller must be pre-qualified by eBay for this feature. Any seller who is not eligible for this feature will be blocked if they try to create a new listing or revise an existing listing with this item condition. Any active listings on any eBay marketplace that had &#39;Manufacturer Refurbished&#39; as the item condition should have been automatically updated by eBay to the &#39;Seller Refurbished&#39; item condition (Condition ID 2500). &lt;br&gt;&lt;br&gt; Any seller that is interested in eligibility requirements to list with &#39;Certified Refurbished&#39; should see the &lt;a href&#x3D;\&quot;https://pages.ebay.com/seller-center/listing-and-marketing/certified-refurbished-program.html\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Certified refurbished program&lt;/a&gt; page in Seller Center. &lt;/span&gt;
+ * @package  Ebay\Sell\Metadata
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ProductAdoptionPolicy implements ModelInterface, ArrayAccess, \JsonSerializable
+class ItemCondition implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ProductAdoptionPolicy';
+    protected static $openAPIModelName = 'ItemCondition';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,10 +60,8 @@ class ProductAdoptionPolicy implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var string[]
       */
     protected static $openAPITypes = [
-        'category_id' => 'string',
-        'category_tree_id' => 'string',
-        'exclusion' => '\Ebay\Sell\Metadata\Model\Exclusion',
-        'product_required' => 'bool'
+        'condition_description' => 'string',
+        'condition_id' => 'string'
     ];
 
     /**
@@ -74,10 +72,8 @@ class ProductAdoptionPolicy implements ModelInterface, ArrayAccess, \JsonSeriali
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'category_id' => null,
-        'category_tree_id' => null,
-        'exclusion' => null,
-        'product_required' => null
+        'condition_description' => null,
+        'condition_id' => null
     ];
 
     /**
@@ -107,10 +103,8 @@ class ProductAdoptionPolicy implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $attributeMap = [
-        'category_id' => 'categoryId',
-        'category_tree_id' => 'categoryTreeId',
-        'exclusion' => 'exclusion',
-        'product_required' => 'productRequired'
+        'condition_description' => 'conditionDescription',
+        'condition_id' => 'conditionId'
     ];
 
     /**
@@ -119,10 +113,8 @@ class ProductAdoptionPolicy implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $setters = [
-        'category_id' => 'setCategoryId',
-        'category_tree_id' => 'setCategoryTreeId',
-        'exclusion' => 'setExclusion',
-        'product_required' => 'setProductRequired'
+        'condition_description' => 'setConditionDescription',
+        'condition_id' => 'setConditionId'
     ];
 
     /**
@@ -131,10 +123,8 @@ class ProductAdoptionPolicy implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $getters = [
-        'category_id' => 'getCategoryId',
-        'category_tree_id' => 'getCategoryTreeId',
-        'exclusion' => 'getExclusion',
-        'product_required' => 'getProductRequired'
+        'condition_description' => 'getConditionDescription',
+        'condition_id' => 'getConditionId'
     ];
 
     /**
@@ -194,10 +184,8 @@ class ProductAdoptionPolicy implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function __construct(array $data = null)
     {
-        $this->container['category_id'] = isset($data['category_id']) ? $data['category_id'] : null;
-        $this->container['category_tree_id'] = isset($data['category_tree_id']) ? $data['category_tree_id'] : null;
-        $this->container['exclusion'] = isset($data['exclusion']) ? $data['exclusion'] : null;
-        $this->container['product_required'] = isset($data['product_required']) ? $data['product_required'] : null;
+        $this->container['condition_description'] = $data['condition_description'] ?? null;
+        $this->container['condition_id'] = $data['condition_id'] ?? null;
     }
 
     /**
@@ -225,97 +213,49 @@ class ProductAdoptionPolicy implements ModelInterface, ArrayAccess, \JsonSeriali
 
 
     /**
-     * Gets category_id
+     * Gets condition_description
      *
      * @return string|null
      */
-    public function getCategoryId()
+    public function getConditionDescription()
     {
-        return $this->container['category_id'];
+        return $this->container['condition_description'];
     }
 
     /**
-     * Sets category_id
+     * Sets condition_description
      *
-     * @param string|null $category_id The category ID to which the listing policies apply.
+     * @param string|null $condition_description The human-readable label for the condition (e.g., &quot;New&quot;). This value is typically localized for each site. Note that the display name can vary by category. For example, the description for condition ID 1000 could be called &quot;New: with Tags&quot; in one category and &quot;Brand New&quot; in another. For details on condition IDs and descriptions, see Item condition ID and name values.
      *
      * @return self
      */
-    public function setCategoryId($category_id)
+    public function setConditionDescription($condition_description)
     {
-        $this->container['category_id'] = $category_id;
+        $this->container['condition_description'] = $condition_description;
 
         return $this;
     }
 
     /**
-     * Gets category_tree_id
+     * Gets condition_id
      *
      * @return string|null
      */
-    public function getCategoryTreeId()
+    public function getConditionId()
     {
-        return $this->container['category_tree_id'];
+        return $this->container['condition_id'];
     }
 
     /**
-     * Sets category_tree_id
+     * Sets condition_id
      *
-     * @param string|null $category_tree_id A value that indicates the root node of the category tree used for the response set. Each marketplace is based on a category tree whose root node is indicated by this unique category ID value. All category policy information returned by this call pertains to the categories included below this root node of the tree. A category tree is a hierarchical framework of eBay categories that begins at the root node of the tree and extends to include all the child nodes in the tree. Each child node in the tree is an eBay category that is represented by a unique categoryId value. Within a category tree, the root node has no parent node and leaf nodes are nodes that have no child nodes.
+     * @param string|null $condition_id The ID value of the selected item condition. For information on the supported condition ID values, see Item condition ID and name values.
      *
      * @return self
      */
-    public function setCategoryTreeId($category_tree_id)
+    public function setConditionId($condition_id)
     {
-        $this->container['category_tree_id'] = $category_tree_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets exclusion
-     *
-     * @return \Ebay\Sell\Metadata\Model\Exclusion|null
-     */
-    public function getExclusion()
-    {
-        return $this->container['exclusion'];
-    }
-
-    /**
-     * Sets exclusion
-     *
-     * @param \Ebay\Sell\Metadata\Model\Exclusion|null $exclusion exclusion
-     *
-     * @return self
-     */
-    public function setExclusion($exclusion)
-    {
-        $this->container['exclusion'] = $exclusion;
-
-        return $this;
-    }
-
-    /**
-     * Gets product_required
-     *
-     * @return bool|null
-     */
-    public function getProductRequired()
-    {
-        return $this->container['product_required'];
-    }
-
-    /**
-     * Sets product_required
-     *
-     * @param bool|null $product_required If set to true, items must include an ePID value in their item description before they can be listed in the category identified by the associated categoryId. In contrast, a value of false indicates that items listed in the associated category do not require ePID values. Important! It is possible for a productAdoptionPolicies container to not contain this productRequired field. This occurs if the eBay category is not part of the PBSE Phase 1 or Phase 2 mandate. In these scenarios, please treat the response the same as if this field were present and contained a value of false.
-     *
-     * @return self
-     */
-    public function setProductRequired($product_required)
-    {
-        $this->container['product_required'] = $product_required;
+        $this->container['condition_id'] = $condition_id;
 
         return $this;
     }
@@ -340,7 +280,7 @@ class ProductAdoptionPolicy implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**

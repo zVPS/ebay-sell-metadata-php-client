@@ -1,11 +1,11 @@
 <?php
 /**
- * ListingStructurePolicyResponse
+ * ProductAdoptionPolicy
  *
  * PHP version 7.2
  *
  * @category Class
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Metadata
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -29,29 +29,30 @@
 namespace Ebay\Sell\Metadata\Model;
 
 use \ArrayAccess;
-use \Ebay\Sell\ObjectSerializer;
+use \Ebay\Sell\Metadata\ObjectSerializer;
 
 /**
- * ListingStructurePolicyResponse Class Doc Comment
+ * ProductAdoptionPolicy Class Doc Comment
  *
  * @category Class
- * @package  Ebay\Sell
+ * @description This complex type returns a category ID and a flag that indicates whether or not items listed in that category require the declaration of an ePID value, which links the item to the eBay Catalog. The type also lists any items that are excepted from the requirement to included an ePID value.
+ * @package  Ebay\Sell\Metadata
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ListingStructurePolicyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class ProductAdoptionPolicy implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ListingStructurePolicyResponse';
+    protected static $openAPIModelName = 'ProductAdoptionPolicy';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,8 +60,10 @@ class ListingStructurePolicyResponse implements ModelInterface, ArrayAccess, \Js
       * @var string[]
       */
     protected static $openAPITypes = [
-        'listing_structure_policies' => '\Ebay\Sell\Metadata\Model\ListingStructurePolicy[]',
-        'warnings' => '\Ebay\Sell\Metadata\Model\Error[]'
+        'category_id' => 'string',
+        'category_tree_id' => 'string',
+        'exclusion' => '\Ebay\Sell\Metadata\Model\Exclusion',
+        'product_required' => 'bool'
     ];
 
     /**
@@ -71,8 +74,10 @@ class ListingStructurePolicyResponse implements ModelInterface, ArrayAccess, \Js
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'listing_structure_policies' => null,
-        'warnings' => null
+        'category_id' => null,
+        'category_tree_id' => null,
+        'exclusion' => null,
+        'product_required' => null
     ];
 
     /**
@@ -102,8 +107,10 @@ class ListingStructurePolicyResponse implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $attributeMap = [
-        'listing_structure_policies' => 'listingStructurePolicies',
-        'warnings' => 'warnings'
+        'category_id' => 'categoryId',
+        'category_tree_id' => 'categoryTreeId',
+        'exclusion' => 'exclusion',
+        'product_required' => 'productRequired'
     ];
 
     /**
@@ -112,8 +119,10 @@ class ListingStructurePolicyResponse implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $setters = [
-        'listing_structure_policies' => 'setListingStructurePolicies',
-        'warnings' => 'setWarnings'
+        'category_id' => 'setCategoryId',
+        'category_tree_id' => 'setCategoryTreeId',
+        'exclusion' => 'setExclusion',
+        'product_required' => 'setProductRequired'
     ];
 
     /**
@@ -122,8 +131,10 @@ class ListingStructurePolicyResponse implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $getters = [
-        'listing_structure_policies' => 'getListingStructurePolicies',
-        'warnings' => 'getWarnings'
+        'category_id' => 'getCategoryId',
+        'category_tree_id' => 'getCategoryTreeId',
+        'exclusion' => 'getExclusion',
+        'product_required' => 'getProductRequired'
     ];
 
     /**
@@ -183,8 +194,10 @@ class ListingStructurePolicyResponse implements ModelInterface, ArrayAccess, \Js
      */
     public function __construct(array $data = null)
     {
-        $this->container['listing_structure_policies'] = isset($data['listing_structure_policies']) ? $data['listing_structure_policies'] : null;
-        $this->container['warnings'] = isset($data['warnings']) ? $data['warnings'] : null;
+        $this->container['category_id'] = $data['category_id'] ?? null;
+        $this->container['category_tree_id'] = $data['category_tree_id'] ?? null;
+        $this->container['exclusion'] = $data['exclusion'] ?? null;
+        $this->container['product_required'] = $data['product_required'] ?? null;
     }
 
     /**
@@ -212,49 +225,97 @@ class ListingStructurePolicyResponse implements ModelInterface, ArrayAccess, \Js
 
 
     /**
-     * Gets listing_structure_policies
+     * Gets category_id
      *
-     * @return \Ebay\Sell\Metadata\Model\ListingStructurePolicy[]|null
+     * @return string|null
      */
-    public function getListingStructurePolicies()
+    public function getCategoryId()
     {
-        return $this->container['listing_structure_policies'];
+        return $this->container['category_id'];
     }
 
     /**
-     * Sets listing_structure_policies
+     * Sets category_id
      *
-     * @param \Ebay\Sell\Metadata\Model\ListingStructurePolicy[]|null $listing_structure_policies Returns a list of category IDs plus a flag indicating whether or not each listed category supports item variations.
+     * @param string|null $category_id The category ID to which the listing policies apply.
      *
      * @return self
      */
-    public function setListingStructurePolicies($listing_structure_policies)
+    public function setCategoryId($category_id)
     {
-        $this->container['listing_structure_policies'] = $listing_structure_policies;
+        $this->container['category_id'] = $category_id;
 
         return $this;
     }
 
     /**
-     * Gets warnings
+     * Gets category_tree_id
      *
-     * @return \Ebay\Sell\Metadata\Model\Error[]|null
+     * @return string|null
      */
-    public function getWarnings()
+    public function getCategoryTreeId()
     {
-        return $this->container['warnings'];
+        return $this->container['category_tree_id'];
     }
 
     /**
-     * Sets warnings
+     * Sets category_tree_id
      *
-     * @param \Ebay\Sell\Metadata\Model\Error[]|null $warnings A list of the warnings that were generated as a result of the request. This field is not returned if no warnings were generated by the request.
+     * @param string|null $category_tree_id A value that indicates the root node of the category tree used for the response set. Each marketplace is based on a category tree whose root node is indicated by this unique category ID value. All category policy information returned by this call pertains to the categories included below this root node of the tree. A category tree is a hierarchical framework of eBay categories that begins at the root node of the tree and extends to include all the child nodes in the tree. Each child node in the tree is an eBay category that is represented by a unique categoryId value. Within a category tree, the root node has no parent node and leaf nodes are nodes that have no child nodes.
      *
      * @return self
      */
-    public function setWarnings($warnings)
+    public function setCategoryTreeId($category_tree_id)
     {
-        $this->container['warnings'] = $warnings;
+        $this->container['category_tree_id'] = $category_tree_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets exclusion
+     *
+     * @return \Ebay\Sell\Metadata\Model\Exclusion|null
+     */
+    public function getExclusion()
+    {
+        return $this->container['exclusion'];
+    }
+
+    /**
+     * Sets exclusion
+     *
+     * @param \Ebay\Sell\Metadata\Model\Exclusion|null $exclusion exclusion
+     *
+     * @return self
+     */
+    public function setExclusion($exclusion)
+    {
+        $this->container['exclusion'] = $exclusion;
+
+        return $this;
+    }
+
+    /**
+     * Gets product_required
+     *
+     * @return bool|null
+     */
+    public function getProductRequired()
+    {
+        return $this->container['product_required'];
+    }
+
+    /**
+     * Sets product_required
+     *
+     * @param bool|null $product_required If set to true, items must include an ePID value in their item description before they can be listed in the category identified by the associated categoryId. In contrast, a value of false indicates that items listed in the associated category do not require ePID values. Important! It is possible for a productAdoptionPolicies container to not contain this productRequired field. This occurs if the eBay category is not part of the PBSE Phase 1 or Phase 2 mandate. In these scenarios, please treat the response the same as if this field were present and contained a value of false.
+     *
+     * @return self
+     */
+    public function setProductRequired($product_required)
+    {
+        $this->container['product_required'] = $product_required;
 
         return $this;
     }
@@ -279,7 +340,7 @@ class ListingStructurePolicyResponse implements ModelInterface, ArrayAccess, \Js
      */
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**

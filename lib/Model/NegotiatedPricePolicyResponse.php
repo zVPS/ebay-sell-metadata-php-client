@@ -1,11 +1,11 @@
 <?php
 /**
- * Exclusion
+ * NegotiatedPricePolicyResponse
  *
  * PHP version 7.2
  *
  * @category Class
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Metadata
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -29,30 +29,29 @@
 namespace Ebay\Sell\Metadata\Model;
 
 use \ArrayAccess;
-use \Ebay\Sell\ObjectSerializer;
+use \Ebay\Sell\Metadata\ObjectSerializer;
 
 /**
- * Exclusion Class Doc Comment
+ * NegotiatedPricePolicyResponse Class Doc Comment
  *
  * @category Class
- * @description This type returns a list of properties (and their associated values) that are excluded from requiring an ePID value (from the eBay Catalog) for items that are listed in the associated category.
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Metadata
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Exclusion implements ModelInterface, ArrayAccess, \JsonSerializable
+class NegotiatedPricePolicyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Exclusion';
+    protected static $openAPIModelName = 'NegotiatedPricePolicyResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,7 +59,8 @@ class Exclusion implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'brands' => 'string[]'
+        'negotiated_price_policies' => '\Ebay\Sell\Metadata\Model\NegotiatedPricePolicy[]',
+        'warnings' => '\Ebay\Sell\Metadata\Model\Error[]'
     ];
 
     /**
@@ -71,7 +71,8 @@ class Exclusion implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'brands' => null
+        'negotiated_price_policies' => null,
+        'warnings' => null
     ];
 
     /**
@@ -101,7 +102,8 @@ class Exclusion implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'brands' => 'brands'
+        'negotiated_price_policies' => 'negotiatedPricePolicies',
+        'warnings' => 'warnings'
     ];
 
     /**
@@ -110,7 +112,8 @@ class Exclusion implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'brands' => 'setBrands'
+        'negotiated_price_policies' => 'setNegotiatedPricePolicies',
+        'warnings' => 'setWarnings'
     ];
 
     /**
@@ -119,7 +122,8 @@ class Exclusion implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'brands' => 'getBrands'
+        'negotiated_price_policies' => 'getNegotiatedPricePolicies',
+        'warnings' => 'getWarnings'
     ];
 
     /**
@@ -179,7 +183,8 @@ class Exclusion implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['brands'] = isset($data['brands']) ? $data['brands'] : null;
+        $this->container['negotiated_price_policies'] = $data['negotiated_price_policies'] ?? null;
+        $this->container['warnings'] = $data['warnings'] ?? null;
     }
 
     /**
@@ -207,25 +212,49 @@ class Exclusion implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets brands
+     * Gets negotiated_price_policies
      *
-     * @return string[]|null
+     * @return \Ebay\Sell\Metadata\Model\NegotiatedPricePolicy[]|null
      */
-    public function getBrands()
+    public function getNegotiatedPricePolicies()
     {
-        return $this->container['brands'];
+        return $this->container['negotiated_price_policies'];
     }
 
     /**
-     * Sets brands
+     * Sets negotiated_price_policies
      *
-     * @param string[]|null $brands A list of brands that are excluded from requiring a link to the eBay Catalog for the associated categoryId. If productRequired is set to true, items that are of a brand returned in this field are excluded from the need to specify a value for the ePID field in their item description in order to be listed in the associated category.
+     * @param \Ebay\Sell\Metadata\Model\NegotiatedPricePolicy[]|null $negotiated_price_policies A list of category IDs and the policies related to negotiated-price items for each of the listed categories.
      *
      * @return self
      */
-    public function setBrands($brands)
+    public function setNegotiatedPricePolicies($negotiated_price_policies)
     {
-        $this->container['brands'] = $brands;
+        $this->container['negotiated_price_policies'] = $negotiated_price_policies;
+
+        return $this;
+    }
+
+    /**
+     * Gets warnings
+     *
+     * @return \Ebay\Sell\Metadata\Model\Error[]|null
+     */
+    public function getWarnings()
+    {
+        return $this->container['warnings'];
+    }
+
+    /**
+     * Sets warnings
+     *
+     * @param \Ebay\Sell\Metadata\Model\Error[]|null $warnings A list of the warnings that were generated as a result of the request. This field is not returned if no warnings were generated by the request.
+     *
+     * @return self
+     */
+    public function setWarnings($warnings)
+    {
+        $this->container['warnings'] = $warnings;
 
         return $this;
     }
@@ -250,7 +279,7 @@ class Exclusion implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**

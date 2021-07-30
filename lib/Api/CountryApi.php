@@ -4,7 +4,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Metadata
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace Ebay\Sell\Metadata;
+namespace Ebay\Sell\Metadata\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -33,16 +33,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use Ebay\Sell\ApiException;
-use Ebay\Sell\Configuration;
-use Ebay\Sell\HeaderSelector;
-use Ebay\Sell\ObjectSerializer;
+use Ebay\Sell\Metadata\ApiException;
+use Ebay\Sell\Metadata\Configuration;
+use Ebay\Sell\Metadata\HeaderSelector;
+use Ebay\Sell\Metadata\ObjectSerializer;
 
 /**
  * CountryApi Class Doc Comment
  *
  * @category Class
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Metadata
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -90,9 +90,8 @@ class CountryApi
      * Set the host index
      *
      * @param int $hostIndex Host index (required)
-     * @return void
      */
-    public function setHostIndex($hostIndex)
+    public function setHostIndex($hostIndex): void
     {
         $this->hostIndex = $hostIndex;
     }
@@ -120,7 +119,7 @@ class CountryApi
      *
      * @param  string $country_code This path parameter specifies the two-letter ISO 3166 country code for the country whose jurisdictions you want to retrieve. eBay provides sales tax jurisdiction information for Canada and the United States.Valid values for this path parameter are CA and US. (required)
      *
-     * @throws \Ebay\Sell\ApiException on non-2xx response
+     * @throws \Ebay\Sell\Metadata\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Ebay\Sell\Metadata\Model\SalesTaxJurisdictions
      */
@@ -135,7 +134,7 @@ class CountryApi
      *
      * @param  string $country_code This path parameter specifies the two-letter ISO 3166 country code for the country whose jurisdictions you want to retrieve. eBay provides sales tax jurisdiction information for Canada and the United States.Valid values for this path parameter are CA and US. (required)
      *
-     * @throws \Ebay\Sell\ApiException on non-2xx response
+     * @throws \Ebay\Sell\Metadata\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Ebay\Sell\Metadata\Model\SalesTaxJurisdictions, HTTP status code, HTTP response headers (array of strings)
      */

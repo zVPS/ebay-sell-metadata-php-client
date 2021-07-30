@@ -1,11 +1,11 @@
 <?php
 /**
- * ListingStructurePolicy
+ * ErrorParameter
  *
  * PHP version 7.2
  *
  * @category Class
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Metadata
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -29,29 +29,30 @@
 namespace Ebay\Sell\Metadata\Model;
 
 use \ArrayAccess;
-use \Ebay\Sell\ObjectSerializer;
+use \Ebay\Sell\Metadata\ObjectSerializer;
 
 /**
- * ListingStructurePolicy Class Doc Comment
+ * ErrorParameter Class Doc Comment
  *
  * @category Class
- * @package  Ebay\Sell
+ * @description Container for a error parameter.
+ * @package  Ebay\Sell\Metadata
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ListingStructurePolicy implements ModelInterface, ArrayAccess, \JsonSerializable
+class ErrorParameter implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ListingStructurePolicy';
+    protected static $openAPIModelName = 'ErrorParameter';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,9 +60,8 @@ class ListingStructurePolicy implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'category_id' => 'string',
-        'category_tree_id' => 'string',
-        'variations_supported' => 'bool'
+        'name' => 'string',
+        'value' => 'string'
     ];
 
     /**
@@ -72,9 +72,8 @@ class ListingStructurePolicy implements ModelInterface, ArrayAccess, \JsonSerial
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'category_id' => null,
-        'category_tree_id' => null,
-        'variations_supported' => null
+        'name' => null,
+        'value' => null
     ];
 
     /**
@@ -104,9 +103,8 @@ class ListingStructurePolicy implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $attributeMap = [
-        'category_id' => 'categoryId',
-        'category_tree_id' => 'categoryTreeId',
-        'variations_supported' => 'variationsSupported'
+        'name' => 'name',
+        'value' => 'value'
     ];
 
     /**
@@ -115,9 +113,8 @@ class ListingStructurePolicy implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $setters = [
-        'category_id' => 'setCategoryId',
-        'category_tree_id' => 'setCategoryTreeId',
-        'variations_supported' => 'setVariationsSupported'
+        'name' => 'setName',
+        'value' => 'setValue'
     ];
 
     /**
@@ -126,9 +123,8 @@ class ListingStructurePolicy implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $getters = [
-        'category_id' => 'getCategoryId',
-        'category_tree_id' => 'getCategoryTreeId',
-        'variations_supported' => 'getVariationsSupported'
+        'name' => 'getName',
+        'value' => 'getValue'
     ];
 
     /**
@@ -188,9 +184,8 @@ class ListingStructurePolicy implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function __construct(array $data = null)
     {
-        $this->container['category_id'] = isset($data['category_id']) ? $data['category_id'] : null;
-        $this->container['category_tree_id'] = isset($data['category_tree_id']) ? $data['category_tree_id'] : null;
-        $this->container['variations_supported'] = isset($data['variations_supported']) ? $data['variations_supported'] : null;
+        $this->container['name'] = $data['name'] ?? null;
+        $this->container['value'] = $data['value'] ?? null;
     }
 
     /**
@@ -218,73 +213,49 @@ class ListingStructurePolicy implements ModelInterface, ArrayAccess, \JsonSerial
 
 
     /**
-     * Gets category_id
+     * Gets name
      *
      * @return string|null
      */
-    public function getCategoryId()
+    public function getName()
     {
-        return $this->container['category_id'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets category_id
+     * Sets name
      *
-     * @param string|null $category_id The category ID to which the listing-structure policy applies.
+     * @param string|null $name Name of the entity that threw the error.
      *
      * @return self
      */
-    public function setCategoryId($category_id)
+    public function setName($name)
     {
-        $this->container['category_id'] = $category_id;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets category_tree_id
+     * Gets value
      *
      * @return string|null
      */
-    public function getCategoryTreeId()
+    public function getValue()
     {
-        return $this->container['category_tree_id'];
+        return $this->container['value'];
     }
 
     /**
-     * Sets category_tree_id
+     * Sets value
      *
-     * @param string|null $category_tree_id A value that indicates the root node of the category tree used for the response set. Each marketplace is based on a category tree whose root node is indicated by this unique category ID value. All category policy information returned by this call pertains to the categories included below this root node of the tree. A category tree is a hierarchical framework of eBay categories that begins at the root node of the tree and extends to include all the child nodes in the tree. Each child node in the tree is an eBay category that is represented by a unique categoryId value. Within a category tree, the root node has no parent node and leaf nodes are nodes that have no child nodes.
+     * @param string|null $value A description of the error.
      *
      * @return self
      */
-    public function setCategoryTreeId($category_tree_id)
+    public function setValue($value)
     {
-        $this->container['category_tree_id'] = $category_tree_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets variations_supported
-     *
-     * @return bool|null
-     */
-    public function getVariationsSupported()
-    {
-        return $this->container['variations_supported'];
-    }
-
-    /**
-     * Sets variations_supported
-     *
-     * @param bool|null $variations_supported This flag denotes whether or not the associated category supports listings with item variations. If set to true, the category does support item variations.
-     *
-     * @return self
-     */
-    public function setVariationsSupported($variations_supported)
-    {
-        $this->container['variations_supported'] = $variations_supported;
+        $this->container['value'] = $value;
 
         return $this;
     }
@@ -309,7 +280,7 @@ class ListingStructurePolicy implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**

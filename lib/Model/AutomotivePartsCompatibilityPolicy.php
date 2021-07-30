@@ -1,11 +1,11 @@
 <?php
 /**
- * NegotiatedPricePolicyResponse
+ * AutomotivePartsCompatibilityPolicy
  *
  * PHP version 7.2
  *
  * @category Class
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Metadata
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -29,29 +29,29 @@
 namespace Ebay\Sell\Metadata\Model;
 
 use \ArrayAccess;
-use \Ebay\Sell\ObjectSerializer;
+use \Ebay\Sell\Metadata\ObjectSerializer;
 
 /**
- * NegotiatedPricePolicyResponse Class Doc Comment
+ * AutomotivePartsCompatibilityPolicy Class Doc Comment
  *
  * @category Class
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Metadata
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class NegotiatedPricePolicyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class AutomotivePartsCompatibilityPolicy implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $openAPIModelName = 'NegotiatedPricePolicyResponse';
+    protected static $openAPIModelName = 'AutomotivePartsCompatibilityPolicy';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,8 +59,11 @@ class NegotiatedPricePolicyResponse implements ModelInterface, ArrayAccess, \Jso
       * @var string[]
       */
     protected static $openAPITypes = [
-        'negotiated_price_policies' => '\Ebay\Sell\Metadata\Model\NegotiatedPricePolicy[]',
-        'warnings' => '\Ebay\Sell\Metadata\Model\Error[]'
+        'category_id' => 'string',
+        'category_tree_id' => 'string',
+        'compatibility_based_on' => 'string',
+        'compatible_vehicle_types' => 'string[]',
+        'max_number_of_compatible_vehicles' => 'int'
     ];
 
     /**
@@ -71,8 +74,11 @@ class NegotiatedPricePolicyResponse implements ModelInterface, ArrayAccess, \Jso
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'negotiated_price_policies' => null,
-        'warnings' => null
+        'category_id' => null,
+        'category_tree_id' => null,
+        'compatibility_based_on' => null,
+        'compatible_vehicle_types' => null,
+        'max_number_of_compatible_vehicles' => null
     ];
 
     /**
@@ -102,8 +108,11 @@ class NegotiatedPricePolicyResponse implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $attributeMap = [
-        'negotiated_price_policies' => 'negotiatedPricePolicies',
-        'warnings' => 'warnings'
+        'category_id' => 'categoryId',
+        'category_tree_id' => 'categoryTreeId',
+        'compatibility_based_on' => 'compatibilityBasedOn',
+        'compatible_vehicle_types' => 'compatibleVehicleTypes',
+        'max_number_of_compatible_vehicles' => 'maxNumberOfCompatibleVehicles'
     ];
 
     /**
@@ -112,8 +121,11 @@ class NegotiatedPricePolicyResponse implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $setters = [
-        'negotiated_price_policies' => 'setNegotiatedPricePolicies',
-        'warnings' => 'setWarnings'
+        'category_id' => 'setCategoryId',
+        'category_tree_id' => 'setCategoryTreeId',
+        'compatibility_based_on' => 'setCompatibilityBasedOn',
+        'compatible_vehicle_types' => 'setCompatibleVehicleTypes',
+        'max_number_of_compatible_vehicles' => 'setMaxNumberOfCompatibleVehicles'
     ];
 
     /**
@@ -122,8 +134,11 @@ class NegotiatedPricePolicyResponse implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $getters = [
-        'negotiated_price_policies' => 'getNegotiatedPricePolicies',
-        'warnings' => 'getWarnings'
+        'category_id' => 'getCategoryId',
+        'category_tree_id' => 'getCategoryTreeId',
+        'compatibility_based_on' => 'getCompatibilityBasedOn',
+        'compatible_vehicle_types' => 'getCompatibleVehicleTypes',
+        'max_number_of_compatible_vehicles' => 'getMaxNumberOfCompatibleVehicles'
     ];
 
     /**
@@ -183,8 +198,11 @@ class NegotiatedPricePolicyResponse implements ModelInterface, ArrayAccess, \Jso
      */
     public function __construct(array $data = null)
     {
-        $this->container['negotiated_price_policies'] = isset($data['negotiated_price_policies']) ? $data['negotiated_price_policies'] : null;
-        $this->container['warnings'] = isset($data['warnings']) ? $data['warnings'] : null;
+        $this->container['category_id'] = $data['category_id'] ?? null;
+        $this->container['category_tree_id'] = $data['category_tree_id'] ?? null;
+        $this->container['compatibility_based_on'] = $data['compatibility_based_on'] ?? null;
+        $this->container['compatible_vehicle_types'] = $data['compatible_vehicle_types'] ?? null;
+        $this->container['max_number_of_compatible_vehicles'] = $data['max_number_of_compatible_vehicles'] ?? null;
     }
 
     /**
@@ -212,49 +230,121 @@ class NegotiatedPricePolicyResponse implements ModelInterface, ArrayAccess, \Jso
 
 
     /**
-     * Gets negotiated_price_policies
+     * Gets category_id
      *
-     * @return \Ebay\Sell\Metadata\Model\NegotiatedPricePolicy[]|null
+     * @return string|null
      */
-    public function getNegotiatedPricePolicies()
+    public function getCategoryId()
     {
-        return $this->container['negotiated_price_policies'];
+        return $this->container['category_id'];
     }
 
     /**
-     * Sets negotiated_price_policies
+     * Sets category_id
      *
-     * @param \Ebay\Sell\Metadata\Model\NegotiatedPricePolicy[]|null $negotiated_price_policies A list of category IDs and the policies related to negotiated-price items for each of the listed categories.
+     * @param string|null $category_id The category ID to which the automotive-parts-compatibility policies apply.
      *
      * @return self
      */
-    public function setNegotiatedPricePolicies($negotiated_price_policies)
+    public function setCategoryId($category_id)
     {
-        $this->container['negotiated_price_policies'] = $negotiated_price_policies;
+        $this->container['category_id'] = $category_id;
 
         return $this;
     }
 
     /**
-     * Gets warnings
+     * Gets category_tree_id
      *
-     * @return \Ebay\Sell\Metadata\Model\Error[]|null
+     * @return string|null
      */
-    public function getWarnings()
+    public function getCategoryTreeId()
     {
-        return $this->container['warnings'];
+        return $this->container['category_tree_id'];
     }
 
     /**
-     * Sets warnings
+     * Sets category_tree_id
      *
-     * @param \Ebay\Sell\Metadata\Model\Error[]|null $warnings A list of the warnings that were generated as a result of the request. This field is not returned if no warnings were generated by the request.
+     * @param string|null $category_tree_id A value that indicates the root node of the category tree used for the response set. Each marketplace is based on a category tree whose root node is indicated by this unique category ID value. All category policy information returned by this call pertains to the categories included below this root node of the tree. A category tree is a hierarchical framework of eBay categories that begins at the root node of the tree and extends to include all the child nodes in the tree. Each child node in the tree is an eBay category that is represented by a unique categoryId value. Within a category tree, the root node has no parent node and leaf nodes are nodes that have no child nodes.
      *
      * @return self
      */
-    public function setWarnings($warnings)
+    public function setCategoryTreeId($category_tree_id)
     {
-        $this->container['warnings'] = $warnings;
+        $this->container['category_tree_id'] = $category_tree_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets compatibility_based_on
+     *
+     * @return string|null
+     */
+    public function getCompatibilityBasedOn()
+    {
+        return $this->container['compatibility_based_on'];
+    }
+
+    /**
+     * Sets compatibility_based_on
+     *
+     * @param string|null $compatibility_based_on Indicates whether the category supports parts compatibility by either ASSEMBLY or by SPECIFICATION. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:CompatibilityTypeEnum'>eBay API documentation</a>
+     *
+     * @return self
+     */
+    public function setCompatibilityBasedOn($compatibility_based_on)
+    {
+        $this->container['compatibility_based_on'] = $compatibility_based_on;
+
+        return $this;
+    }
+
+    /**
+     * Gets compatible_vehicle_types
+     *
+     * @return string[]|null
+     */
+    public function getCompatibleVehicleTypes()
+    {
+        return $this->container['compatible_vehicle_types'];
+    }
+
+    /**
+     * Sets compatible_vehicle_types
+     *
+     * @param string[]|null $compatible_vehicle_types Indicates the compatibility classification of the part based on high-level vehicle types.
+     *
+     * @return self
+     */
+    public function setCompatibleVehicleTypes($compatible_vehicle_types)
+    {
+        $this->container['compatible_vehicle_types'] = $compatible_vehicle_types;
+
+        return $this;
+    }
+
+    /**
+     * Gets max_number_of_compatible_vehicles
+     *
+     * @return int|null
+     */
+    public function getMaxNumberOfCompatibleVehicles()
+    {
+        return $this->container['max_number_of_compatible_vehicles'];
+    }
+
+    /**
+     * Sets max_number_of_compatible_vehicles
+     *
+     * @param int|null $max_number_of_compatible_vehicles Specifies the maximum number of compatible vehicle-applications allowed per item.
+     *
+     * @return self
+     */
+    public function setMaxNumberOfCompatibleVehicles($max_number_of_compatible_vehicles)
+    {
+        $this->container['max_number_of_compatible_vehicles'] = $max_number_of_compatible_vehicles;
 
         return $this;
     }
@@ -279,7 +369,7 @@ class NegotiatedPricePolicyResponse implements ModelInterface, ArrayAccess, \Jso
      */
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**

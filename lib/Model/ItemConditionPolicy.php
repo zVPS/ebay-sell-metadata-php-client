@@ -1,11 +1,11 @@
 <?php
 /**
- * AutomotivePartsCompatibilityPolicy
+ * ItemConditionPolicy
  *
  * PHP version 7.2
  *
  * @category Class
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Metadata
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -29,29 +29,29 @@
 namespace Ebay\Sell\Metadata\Model;
 
 use \ArrayAccess;
-use \Ebay\Sell\ObjectSerializer;
+use \Ebay\Sell\Metadata\ObjectSerializer;
 
 /**
- * AutomotivePartsCompatibilityPolicy Class Doc Comment
+ * ItemConditionPolicy Class Doc Comment
  *
  * @category Class
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Metadata
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class AutomotivePartsCompatibilityPolicy implements ModelInterface, ArrayAccess, \JsonSerializable
+class ItemConditionPolicy implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $openAPIModelName = 'AutomotivePartsCompatibilityPolicy';
+    protected static $openAPIModelName = 'ItemConditionPolicy';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -61,9 +61,8 @@ class AutomotivePartsCompatibilityPolicy implements ModelInterface, ArrayAccess,
     protected static $openAPITypes = [
         'category_id' => 'string',
         'category_tree_id' => 'string',
-        'compatibility_based_on' => 'string',
-        'compatible_vehicle_types' => 'string[]',
-        'max_number_of_compatible_vehicles' => 'int'
+        'item_condition_required' => 'bool',
+        'item_conditions' => '\Ebay\Sell\Metadata\Model\ItemCondition[]'
     ];
 
     /**
@@ -76,9 +75,8 @@ class AutomotivePartsCompatibilityPolicy implements ModelInterface, ArrayAccess,
     protected static $openAPIFormats = [
         'category_id' => null,
         'category_tree_id' => null,
-        'compatibility_based_on' => null,
-        'compatible_vehicle_types' => null,
-        'max_number_of_compatible_vehicles' => null
+        'item_condition_required' => null,
+        'item_conditions' => null
     ];
 
     /**
@@ -110,9 +108,8 @@ class AutomotivePartsCompatibilityPolicy implements ModelInterface, ArrayAccess,
     protected static $attributeMap = [
         'category_id' => 'categoryId',
         'category_tree_id' => 'categoryTreeId',
-        'compatibility_based_on' => 'compatibilityBasedOn',
-        'compatible_vehicle_types' => 'compatibleVehicleTypes',
-        'max_number_of_compatible_vehicles' => 'maxNumberOfCompatibleVehicles'
+        'item_condition_required' => 'itemConditionRequired',
+        'item_conditions' => 'itemConditions'
     ];
 
     /**
@@ -123,9 +120,8 @@ class AutomotivePartsCompatibilityPolicy implements ModelInterface, ArrayAccess,
     protected static $setters = [
         'category_id' => 'setCategoryId',
         'category_tree_id' => 'setCategoryTreeId',
-        'compatibility_based_on' => 'setCompatibilityBasedOn',
-        'compatible_vehicle_types' => 'setCompatibleVehicleTypes',
-        'max_number_of_compatible_vehicles' => 'setMaxNumberOfCompatibleVehicles'
+        'item_condition_required' => 'setItemConditionRequired',
+        'item_conditions' => 'setItemConditions'
     ];
 
     /**
@@ -136,9 +132,8 @@ class AutomotivePartsCompatibilityPolicy implements ModelInterface, ArrayAccess,
     protected static $getters = [
         'category_id' => 'getCategoryId',
         'category_tree_id' => 'getCategoryTreeId',
-        'compatibility_based_on' => 'getCompatibilityBasedOn',
-        'compatible_vehicle_types' => 'getCompatibleVehicleTypes',
-        'max_number_of_compatible_vehicles' => 'getMaxNumberOfCompatibleVehicles'
+        'item_condition_required' => 'getItemConditionRequired',
+        'item_conditions' => 'getItemConditions'
     ];
 
     /**
@@ -198,11 +193,10 @@ class AutomotivePartsCompatibilityPolicy implements ModelInterface, ArrayAccess,
      */
     public function __construct(array $data = null)
     {
-        $this->container['category_id'] = isset($data['category_id']) ? $data['category_id'] : null;
-        $this->container['category_tree_id'] = isset($data['category_tree_id']) ? $data['category_tree_id'] : null;
-        $this->container['compatibility_based_on'] = isset($data['compatibility_based_on']) ? $data['compatibility_based_on'] : null;
-        $this->container['compatible_vehicle_types'] = isset($data['compatible_vehicle_types']) ? $data['compatible_vehicle_types'] : null;
-        $this->container['max_number_of_compatible_vehicles'] = isset($data['max_number_of_compatible_vehicles']) ? $data['max_number_of_compatible_vehicles'] : null;
+        $this->container['category_id'] = $data['category_id'] ?? null;
+        $this->container['category_tree_id'] = $data['category_tree_id'] ?? null;
+        $this->container['item_condition_required'] = $data['item_condition_required'] ?? null;
+        $this->container['item_conditions'] = $data['item_conditions'] ?? null;
     }
 
     /**
@@ -242,7 +236,7 @@ class AutomotivePartsCompatibilityPolicy implements ModelInterface, ArrayAccess,
     /**
      * Sets category_id
      *
-     * @param string|null $category_id The category ID to which the automotive-parts-compatibility policies apply.
+     * @param string|null $category_id The category ID to which the item-condition policy applies.
      *
      * @return self
      */
@@ -278,73 +272,49 @@ class AutomotivePartsCompatibilityPolicy implements ModelInterface, ArrayAccess,
     }
 
     /**
-     * Gets compatibility_based_on
+     * Gets item_condition_required
      *
-     * @return string|null
+     * @return bool|null
      */
-    public function getCompatibilityBasedOn()
+    public function getItemConditionRequired()
     {
-        return $this->container['compatibility_based_on'];
+        return $this->container['item_condition_required'];
     }
 
     /**
-     * Sets compatibility_based_on
+     * Sets item_condition_required
      *
-     * @param string|null $compatibility_based_on Indicates whether the category supports parts compatibility by either ASSEMBLY or by SPECIFICATION. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:CompatibilityTypeEnum'>eBay API documentation</a>
+     * @param bool|null $item_condition_required This flag denotes whether or not you must list the item condition in a listing for the specified category. If set to true, you must specify an item condition for the associated category.
      *
      * @return self
      */
-    public function setCompatibilityBasedOn($compatibility_based_on)
+    public function setItemConditionRequired($item_condition_required)
     {
-        $this->container['compatibility_based_on'] = $compatibility_based_on;
+        $this->container['item_condition_required'] = $item_condition_required;
 
         return $this;
     }
 
     /**
-     * Gets compatible_vehicle_types
+     * Gets item_conditions
      *
-     * @return string[]|null
+     * @return \Ebay\Sell\Metadata\Model\ItemCondition[]|null
      */
-    public function getCompatibleVehicleTypes()
+    public function getItemConditions()
     {
-        return $this->container['compatible_vehicle_types'];
+        return $this->container['item_conditions'];
     }
 
     /**
-     * Sets compatible_vehicle_types
+     * Sets item_conditions
      *
-     * @param string[]|null $compatible_vehicle_types Indicates the compatibility classification of the part based on high-level vehicle types.
+     * @param \Ebay\Sell\Metadata\Model\ItemCondition[]|null $item_conditions The item-condition values allowed in the category. Note: In all eBay marketplaces, Condition ID 2000 now maps to an item condition of 'Certified Refurbished', and not 'Manufacturer Refurbished'. To list an item as 'Certified Refurbished', a seller must be pre-qualified by eBay for this feature. Any seller who is not eligible for this feature will be blocked if they try to create a new listing or revise an existing listing with this item condition. Any active listings on any eBay marketplace that had 'Manufacturer Refurbished' as the item condition should have been automatically updated by eBay to the 'Seller Refurbished' item condition (Condition ID 2500). Any seller that is interested in eligibility requirements to list with 'Certified Refurbished' should see the Certified refurbished program page in Seller Center.
      *
      * @return self
      */
-    public function setCompatibleVehicleTypes($compatible_vehicle_types)
+    public function setItemConditions($item_conditions)
     {
-        $this->container['compatible_vehicle_types'] = $compatible_vehicle_types;
-
-        return $this;
-    }
-
-    /**
-     * Gets max_number_of_compatible_vehicles
-     *
-     * @return int|null
-     */
-    public function getMaxNumberOfCompatibleVehicles()
-    {
-        return $this->container['max_number_of_compatible_vehicles'];
-    }
-
-    /**
-     * Sets max_number_of_compatible_vehicles
-     *
-     * @param int|null $max_number_of_compatible_vehicles Specifies the maximum number of compatible vehicle-applications allowed per item.
-     *
-     * @return self
-     */
-    public function setMaxNumberOfCompatibleVehicles($max_number_of_compatible_vehicles)
-    {
-        $this->container['max_number_of_compatible_vehicles'] = $max_number_of_compatible_vehicles;
+        $this->container['item_conditions'] = $item_conditions;
 
         return $this;
     }
@@ -369,7 +339,7 @@ class AutomotivePartsCompatibilityPolicy implements ModelInterface, ArrayAccess,
      */
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**

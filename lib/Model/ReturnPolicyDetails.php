@@ -1,11 +1,11 @@
 <?php
 /**
- * NegotiatedPricePolicy
+ * ReturnPolicyDetails
  *
  * PHP version 7.2
  *
  * @category Class
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Metadata
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -29,29 +29,30 @@
 namespace Ebay\Sell\Metadata\Model;
 
 use \ArrayAccess;
-use \Ebay\Sell\ObjectSerializer;
+use \Ebay\Sell\Metadata\ObjectSerializer;
 
 /**
- * NegotiatedPricePolicy Class Doc Comment
+ * ReturnPolicyDetails Class Doc Comment
  *
  * @category Class
- * @package  Ebay\Sell
+ * @description This container defines the category policies that relate to domestic and international return policies (the return shipping is made via a domestic or an international shipping service, respectively).
+ * @package  Ebay\Sell\Metadata
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class NegotiatedPricePolicy implements ModelInterface, ArrayAccess, \JsonSerializable
+class ReturnPolicyDetails implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $openAPIModelName = 'NegotiatedPricePolicy';
+    protected static $openAPIModelName = 'ReturnPolicyDetails';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,11 +60,12 @@ class NegotiatedPricePolicy implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var string[]
       */
     protected static $openAPITypes = [
-        'best_offer_auto_accept_enabled' => 'bool',
-        'best_offer_auto_decline_enabled' => 'bool',
-        'best_offer_counter_enabled' => 'bool',
-        'category_id' => 'string',
-        'category_tree_id' => 'string'
+        'policy_description_enabled' => 'bool',
+        'refund_methods' => 'string[]',
+        'return_methods' => 'string[]',
+        'return_periods' => '\Ebay\Sell\Metadata\Model\TimeDuration[]',
+        'returns_acceptance_enabled' => 'bool',
+        'return_shipping_cost_payers' => 'string[]'
     ];
 
     /**
@@ -74,11 +76,12 @@ class NegotiatedPricePolicy implements ModelInterface, ArrayAccess, \JsonSeriali
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'best_offer_auto_accept_enabled' => null,
-        'best_offer_auto_decline_enabled' => null,
-        'best_offer_counter_enabled' => null,
-        'category_id' => null,
-        'category_tree_id' => null
+        'policy_description_enabled' => null,
+        'refund_methods' => null,
+        'return_methods' => null,
+        'return_periods' => null,
+        'returns_acceptance_enabled' => null,
+        'return_shipping_cost_payers' => null
     ];
 
     /**
@@ -108,11 +111,12 @@ class NegotiatedPricePolicy implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $attributeMap = [
-        'best_offer_auto_accept_enabled' => 'bestOfferAutoAcceptEnabled',
-        'best_offer_auto_decline_enabled' => 'bestOfferAutoDeclineEnabled',
-        'best_offer_counter_enabled' => 'bestOfferCounterEnabled',
-        'category_id' => 'categoryId',
-        'category_tree_id' => 'categoryTreeId'
+        'policy_description_enabled' => 'policyDescriptionEnabled',
+        'refund_methods' => 'refundMethods',
+        'return_methods' => 'returnMethods',
+        'return_periods' => 'returnPeriods',
+        'returns_acceptance_enabled' => 'returnsAcceptanceEnabled',
+        'return_shipping_cost_payers' => 'returnShippingCostPayers'
     ];
 
     /**
@@ -121,11 +125,12 @@ class NegotiatedPricePolicy implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $setters = [
-        'best_offer_auto_accept_enabled' => 'setBestOfferAutoAcceptEnabled',
-        'best_offer_auto_decline_enabled' => 'setBestOfferAutoDeclineEnabled',
-        'best_offer_counter_enabled' => 'setBestOfferCounterEnabled',
-        'category_id' => 'setCategoryId',
-        'category_tree_id' => 'setCategoryTreeId'
+        'policy_description_enabled' => 'setPolicyDescriptionEnabled',
+        'refund_methods' => 'setRefundMethods',
+        'return_methods' => 'setReturnMethods',
+        'return_periods' => 'setReturnPeriods',
+        'returns_acceptance_enabled' => 'setReturnsAcceptanceEnabled',
+        'return_shipping_cost_payers' => 'setReturnShippingCostPayers'
     ];
 
     /**
@@ -134,11 +139,12 @@ class NegotiatedPricePolicy implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $getters = [
-        'best_offer_auto_accept_enabled' => 'getBestOfferAutoAcceptEnabled',
-        'best_offer_auto_decline_enabled' => 'getBestOfferAutoDeclineEnabled',
-        'best_offer_counter_enabled' => 'getBestOfferCounterEnabled',
-        'category_id' => 'getCategoryId',
-        'category_tree_id' => 'getCategoryTreeId'
+        'policy_description_enabled' => 'getPolicyDescriptionEnabled',
+        'refund_methods' => 'getRefundMethods',
+        'return_methods' => 'getReturnMethods',
+        'return_periods' => 'getReturnPeriods',
+        'returns_acceptance_enabled' => 'getReturnsAcceptanceEnabled',
+        'return_shipping_cost_payers' => 'getReturnShippingCostPayers'
     ];
 
     /**
@@ -198,11 +204,12 @@ class NegotiatedPricePolicy implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function __construct(array $data = null)
     {
-        $this->container['best_offer_auto_accept_enabled'] = isset($data['best_offer_auto_accept_enabled']) ? $data['best_offer_auto_accept_enabled'] : null;
-        $this->container['best_offer_auto_decline_enabled'] = isset($data['best_offer_auto_decline_enabled']) ? $data['best_offer_auto_decline_enabled'] : null;
-        $this->container['best_offer_counter_enabled'] = isset($data['best_offer_counter_enabled']) ? $data['best_offer_counter_enabled'] : null;
-        $this->container['category_id'] = isset($data['category_id']) ? $data['category_id'] : null;
-        $this->container['category_tree_id'] = isset($data['category_tree_id']) ? $data['category_tree_id'] : null;
+        $this->container['policy_description_enabled'] = $data['policy_description_enabled'] ?? null;
+        $this->container['refund_methods'] = $data['refund_methods'] ?? null;
+        $this->container['return_methods'] = $data['return_methods'] ?? null;
+        $this->container['return_periods'] = $data['return_periods'] ?? null;
+        $this->container['returns_acceptance_enabled'] = $data['returns_acceptance_enabled'] ?? null;
+        $this->container['return_shipping_cost_payers'] = $data['return_shipping_cost_payers'] ?? null;
     }
 
     /**
@@ -230,121 +237,145 @@ class NegotiatedPricePolicy implements ModelInterface, ArrayAccess, \JsonSeriali
 
 
     /**
-     * Gets best_offer_auto_accept_enabled
+     * Gets policy_description_enabled
      *
      * @return bool|null
      */
-    public function getBestOfferAutoAcceptEnabled()
+    public function getPolicyDescriptionEnabled()
     {
-        return $this->container['best_offer_auto_accept_enabled'];
+        return $this->container['policy_description_enabled'];
     }
 
     /**
-     * Sets best_offer_auto_accept_enabled
+     * Sets policy_description_enabled
      *
-     * @param bool|null $best_offer_auto_accept_enabled This flag denotes whether or not the category supports the setting of a price at which best offers are automatically accepted. If set to true, the category does support the setting of an automatic price for best-offers.
+     * @param bool|null $policy_description_enabled If set to true, this flag indicates you can supply a detailed return policy description within your return policy (for example, by populating the returnInstructions field in the Account API's createReturnPolicy). User-supplied return policy details are allowed only in the DE, ES, FR, and IT marketplaces.
      *
      * @return self
      */
-    public function setBestOfferAutoAcceptEnabled($best_offer_auto_accept_enabled)
+    public function setPolicyDescriptionEnabled($policy_description_enabled)
     {
-        $this->container['best_offer_auto_accept_enabled'] = $best_offer_auto_accept_enabled;
+        $this->container['policy_description_enabled'] = $policy_description_enabled;
 
         return $this;
     }
 
     /**
-     * Gets best_offer_auto_decline_enabled
+     * Gets refund_methods
+     *
+     * @return string[]|null
+     */
+    public function getRefundMethods()
+    {
+        return $this->container['refund_methods'];
+    }
+
+    /**
+     * Sets refund_methods
+     *
+     * @param string[]|null $refund_methods A list of refund methods allowed for the associated category.
+     *
+     * @return self
+     */
+    public function setRefundMethods($refund_methods)
+    {
+        $this->container['refund_methods'] = $refund_methods;
+
+        return $this;
+    }
+
+    /**
+     * Gets return_methods
+     *
+     * @return string[]|null
+     */
+    public function getReturnMethods()
+    {
+        return $this->container['return_methods'];
+    }
+
+    /**
+     * Sets return_methods
+     *
+     * @param string[]|null $return_methods A list of return methods allowed for the associated category.
+     *
+     * @return self
+     */
+    public function setReturnMethods($return_methods)
+    {
+        $this->container['return_methods'] = $return_methods;
+
+        return $this;
+    }
+
+    /**
+     * Gets return_periods
+     *
+     * @return \Ebay\Sell\Metadata\Model\TimeDuration[]|null
+     */
+    public function getReturnPeriods()
+    {
+        return $this->container['return_periods'];
+    }
+
+    /**
+     * Sets return_periods
+     *
+     * @param \Ebay\Sell\Metadata\Model\TimeDuration[]|null $return_periods A list of return periods allowed for the associated category. Note that different APIs require you to enter the return period in different ways. For example, the Account API uses the complex TimeDuration type, which takes two values (a unit and a value), whereas the Trading API takes a single value (such as Days_30).
+     *
+     * @return self
+     */
+    public function setReturnPeriods($return_periods)
+    {
+        $this->container['return_periods'] = $return_periods;
+
+        return $this;
+    }
+
+    /**
+     * Gets returns_acceptance_enabled
      *
      * @return bool|null
      */
-    public function getBestOfferAutoDeclineEnabled()
+    public function getReturnsAcceptanceEnabled()
     {
-        return $this->container['best_offer_auto_decline_enabled'];
+        return $this->container['returns_acceptance_enabled'];
     }
 
     /**
-     * Sets best_offer_auto_decline_enabled
+     * Sets returns_acceptance_enabled
      *
-     * @param bool|null $best_offer_auto_decline_enabled This flag denotes whether or not the category supports the setting of an auto-decline price for best offers. If set to true, the category does support the setting of an automatic-decline price for best-offers.
+     * @param bool|null $returns_acceptance_enabled If set to true, this flag indicates the seller can configure how they handle domestic returns.
      *
      * @return self
      */
-    public function setBestOfferAutoDeclineEnabled($best_offer_auto_decline_enabled)
+    public function setReturnsAcceptanceEnabled($returns_acceptance_enabled)
     {
-        $this->container['best_offer_auto_decline_enabled'] = $best_offer_auto_decline_enabled;
+        $this->container['returns_acceptance_enabled'] = $returns_acceptance_enabled;
 
         return $this;
     }
 
     /**
-     * Gets best_offer_counter_enabled
+     * Gets return_shipping_cost_payers
      *
-     * @return bool|null
+     * @return string[]|null
      */
-    public function getBestOfferCounterEnabled()
+    public function getReturnShippingCostPayers()
     {
-        return $this->container['best_offer_counter_enabled'];
+        return $this->container['return_shipping_cost_payers'];
     }
 
     /**
-     * Sets best_offer_counter_enabled
+     * Sets return_shipping_cost_payers
      *
-     * @param bool|null $best_offer_counter_enabled This flag denotes whether or not the category supports the setting for an automatic counter-offer on best offers. If set to true, the category does support the setting of an automatic counter-offer price for best-offers.
+     * @param string[]|null $return_shipping_cost_payers A list of allowed values for who pays for the return shipping cost. Note that for SNAD returns, the seller is always responsible for the return shipping cost.
      *
      * @return self
      */
-    public function setBestOfferCounterEnabled($best_offer_counter_enabled)
+    public function setReturnShippingCostPayers($return_shipping_cost_payers)
     {
-        $this->container['best_offer_counter_enabled'] = $best_offer_counter_enabled;
-
-        return $this;
-    }
-
-    /**
-     * Gets category_id
-     *
-     * @return string|null
-     */
-    public function getCategoryId()
-    {
-        return $this->container['category_id'];
-    }
-
-    /**
-     * Sets category_id
-     *
-     * @param string|null $category_id The category ID to which the negotiated-price policies apply.
-     *
-     * @return self
-     */
-    public function setCategoryId($category_id)
-    {
-        $this->container['category_id'] = $category_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets category_tree_id
-     *
-     * @return string|null
-     */
-    public function getCategoryTreeId()
-    {
-        return $this->container['category_tree_id'];
-    }
-
-    /**
-     * Sets category_tree_id
-     *
-     * @param string|null $category_tree_id A value that indicates the root node of the category tree used for the response set. Each marketplace is based on a category tree whose root node is indicated by this unique category ID value. All category policy information returned by this call pertains to the categories included below this root node of the tree. A category tree is a hierarchical framework of eBay categories that begins at the root node of the tree and extends to include all the child nodes in the tree. Each child node in the tree is an eBay category that is represented by a unique categoryId value. Within a category tree, the root node has no parent node and leaf nodes are nodes that have no child nodes.
-     *
-     * @return self
-     */
-    public function setCategoryTreeId($category_tree_id)
-    {
-        $this->container['category_tree_id'] = $category_tree_id;
+        $this->container['return_shipping_cost_payers'] = $return_shipping_cost_payers;
 
         return $this;
     }
@@ -369,7 +400,7 @@ class NegotiatedPricePolicy implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**

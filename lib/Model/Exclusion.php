@@ -1,11 +1,11 @@
 <?php
 /**
- * TimeDuration
+ * Exclusion
  *
  * PHP version 7.2
  *
  * @category Class
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Metadata
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -29,30 +29,30 @@
 namespace Ebay\Sell\Metadata\Model;
 
 use \ArrayAccess;
-use \Ebay\Sell\ObjectSerializer;
+use \Ebay\Sell\Metadata\ObjectSerializer;
 
 /**
- * TimeDuration Class Doc Comment
+ * Exclusion Class Doc Comment
  *
  * @category Class
- * @description A complex type that specifies a period of time using a specified time-measurement unit.
- * @package  Ebay\Sell
+ * @description This type returns a list of properties (and their associated values) that are excluded from requiring an ePID value (from the eBay Catalog) for items that are listed in the associated category.
+ * @package  Ebay\Sell\Metadata
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class TimeDuration implements ModelInterface, ArrayAccess, \JsonSerializable
+class Exclusion implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $openAPIModelName = 'TimeDuration';
+    protected static $openAPIModelName = 'Exclusion';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,8 +60,7 @@ class TimeDuration implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'unit' => 'string',
-        'value' => 'int'
+        'brands' => 'string[]'
     ];
 
     /**
@@ -72,8 +71,7 @@ class TimeDuration implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'unit' => null,
-        'value' => null
+        'brands' => null
     ];
 
     /**
@@ -103,8 +101,7 @@ class TimeDuration implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'unit' => 'unit',
-        'value' => 'value'
+        'brands' => 'brands'
     ];
 
     /**
@@ -113,8 +110,7 @@ class TimeDuration implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'unit' => 'setUnit',
-        'value' => 'setValue'
+        'brands' => 'setBrands'
     ];
 
     /**
@@ -123,8 +119,7 @@ class TimeDuration implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'unit' => 'getUnit',
-        'value' => 'getValue'
+        'brands' => 'getBrands'
     ];
 
     /**
@@ -184,8 +179,7 @@ class TimeDuration implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['unit'] = isset($data['unit']) ? $data['unit'] : null;
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['brands'] = $data['brands'] ?? null;
     }
 
     /**
@@ -213,49 +207,25 @@ class TimeDuration implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets unit
+     * Gets brands
      *
-     * @return string|null
+     * @return string[]|null
      */
-    public function getUnit()
+    public function getBrands()
     {
-        return $this->container['unit'];
+        return $this->container['brands'];
     }
 
     /**
-     * Sets unit
+     * Sets brands
      *
-     * @param string|null $unit A time-measurement unit that specifies a singular period of time. A span of time is defined when you apply the value specified in the value field to the value specified for unit. Time-measurement units can be YEAR, MONTH, DAY, and so on. See TimeDurationUnitEnum for a complete list of possible time-measurement units. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/ba:TimeDurationUnitEnum'>eBay API documentation</a>
+     * @param string[]|null $brands A list of brands that are excluded from requiring a link to the eBay Catalog for the associated categoryId. If productRequired is set to true, items that are of a brand returned in this field are excluded from the need to specify a value for the ePID field in their item description in order to be listed in the associated category.
      *
      * @return self
      */
-    public function setUnit($unit)
+    public function setBrands($brands)
     {
-        $this->container['unit'] = $unit;
-
-        return $this;
-    }
-
-    /**
-     * Gets value
-     *
-     * @return int|null
-     */
-    public function getValue()
-    {
-        return $this->container['value'];
-    }
-
-    /**
-     * Sets value
-     *
-     * @param int|null $value An integer that represents an amount of time, as measured by the time-measurement unit specified in the unit field.
-     *
-     * @return self
-     */
-    public function setValue($value)
-    {
-        $this->container['value'] = $value;
+        $this->container['brands'] = $brands;
 
         return $this;
     }
@@ -280,7 +250,7 @@ class TimeDuration implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**

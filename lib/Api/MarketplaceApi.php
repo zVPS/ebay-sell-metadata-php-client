@@ -4,7 +4,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Metadata
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace Ebay\Sell\Metadata;
+namespace Ebay\Sell\Metadata\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -33,16 +33,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use Ebay\Sell\ApiException;
-use Ebay\Sell\Configuration;
-use Ebay\Sell\HeaderSelector;
-use Ebay\Sell\ObjectSerializer;
+use Ebay\Sell\Metadata\ApiException;
+use Ebay\Sell\Metadata\Configuration;
+use Ebay\Sell\Metadata\HeaderSelector;
+use Ebay\Sell\Metadata\ObjectSerializer;
 
 /**
  * MarketplaceApi Class Doc Comment
  *
  * @category Class
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Metadata
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -90,9 +90,8 @@ class MarketplaceApi
      * Set the host index
      *
      * @param int $hostIndex Host index (required)
-     * @return void
      */
-    public function setHostIndex($hostIndex)
+    public function setHostIndex($hostIndex): void
     {
         $this->hostIndex = $hostIndex;
     }
@@ -121,7 +120,7 @@ class MarketplaceApi
      * @param  string $marketplace_id This path parameter specifies the eBay marketplace for which policy information is retrieved. Note: Only the following eBay marketplaces support automotive parts compatibility: EBAY_US EBAY_AU EBAY_CA EBAY_DE EBAY_ES EBAY_FR EBAY_GB EBAY_IT (required)
      * @param  string $filter This query parameter limits the response by returning policy information for only the selected sections of the category tree. Supply categoryId values for the sections of the tree you want returned. When you specify a categoryId value, the returned category tree includes the policies for that parent node, plus the policies for any leaf nodes below that parent node. The parameter takes a list of categoryId values and you can specify up to 50 separate category IDs. Separate multiple values with a pipe character (&#39;|&#39;). If you specify more than 50 categoryId values, eBay returns the policies for the first 50 IDs and a warning that not all categories were returned. Example: filter&#x3D;categoryIds:{100|101|102} Note that you must URL-encode the parameter list, which results in the following filter for the above example: &amp;nbsp;&amp;nbsp;filter&#x3D;categoryIds%3A%7B100%7C101%7C102%7D (optional)
      *
-     * @throws \Ebay\Sell\ApiException on non-2xx response
+     * @throws \Ebay\Sell\Metadata\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Ebay\Sell\Metadata\Model\AutomotivePartsCompatibilityPolicyResponse
      */
@@ -137,7 +136,7 @@ class MarketplaceApi
      * @param  string $marketplace_id This path parameter specifies the eBay marketplace for which policy information is retrieved. Note: Only the following eBay marketplaces support automotive parts compatibility: EBAY_US EBAY_AU EBAY_CA EBAY_DE EBAY_ES EBAY_FR EBAY_GB EBAY_IT (required)
      * @param  string $filter This query parameter limits the response by returning policy information for only the selected sections of the category tree. Supply categoryId values for the sections of the tree you want returned. When you specify a categoryId value, the returned category tree includes the policies for that parent node, plus the policies for any leaf nodes below that parent node. The parameter takes a list of categoryId values and you can specify up to 50 separate category IDs. Separate multiple values with a pipe character (&#39;|&#39;). If you specify more than 50 categoryId values, eBay returns the policies for the first 50 IDs and a warning that not all categories were returned. Example: filter&#x3D;categoryIds:{100|101|102} Note that you must URL-encode the parameter list, which results in the following filter for the above example: &amp;nbsp;&amp;nbsp;filter&#x3D;categoryIds%3A%7B100%7C101%7C102%7D (optional)
      *
-     * @throws \Ebay\Sell\ApiException on non-2xx response
+     * @throws \Ebay\Sell\Metadata\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Ebay\Sell\Metadata\Model\AutomotivePartsCompatibilityPolicyResponse, HTTP status code, HTTP response headers (array of strings)
      */
@@ -393,7 +392,7 @@ class MarketplaceApi
      * @param  string $marketplace_id This path parameter specifies the eBay marketplace for which policy information is retrieved. See the following page for a list of valid eBay marketplace IDs: Request components. (required)
      * @param  string $filter This query parameter limits the response by returning policy information for only the selected sections of the category tree. Supply categoryId values for the sections of the tree you want returned. When you specify a categoryId value, the returned category tree includes the policies for that parent node, plus the policies for any leaf nodes below that parent node. The parameter takes a list of categoryId values and you can specify up to 50 separate category IDs. Separate multiple values with a pipe character (&#39;|&#39;). If you specify more than 50 categoryId values, eBay returns the policies for the first 50 IDs and a warning that not all categories were returned. Example: filter&#x3D;categoryIds:{100|101|102} Note that you must URL-encode the parameter list, which results in the following filter for the above example: &amp;nbsp;&amp;nbsp;filter&#x3D;categoryIds%3A%7B100%7C101%7C102%7D (optional)
      *
-     * @throws \Ebay\Sell\ApiException on non-2xx response
+     * @throws \Ebay\Sell\Metadata\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Ebay\Sell\Metadata\Model\ItemConditionPolicyResponse
      */
@@ -409,7 +408,7 @@ class MarketplaceApi
      * @param  string $marketplace_id This path parameter specifies the eBay marketplace for which policy information is retrieved. See the following page for a list of valid eBay marketplace IDs: Request components. (required)
      * @param  string $filter This query parameter limits the response by returning policy information for only the selected sections of the category tree. Supply categoryId values for the sections of the tree you want returned. When you specify a categoryId value, the returned category tree includes the policies for that parent node, plus the policies for any leaf nodes below that parent node. The parameter takes a list of categoryId values and you can specify up to 50 separate category IDs. Separate multiple values with a pipe character (&#39;|&#39;). If you specify more than 50 categoryId values, eBay returns the policies for the first 50 IDs and a warning that not all categories were returned. Example: filter&#x3D;categoryIds:{100|101|102} Note that you must URL-encode the parameter list, which results in the following filter for the above example: &amp;nbsp;&amp;nbsp;filter&#x3D;categoryIds%3A%7B100%7C101%7C102%7D (optional)
      *
-     * @throws \Ebay\Sell\ApiException on non-2xx response
+     * @throws \Ebay\Sell\Metadata\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Ebay\Sell\Metadata\Model\ItemConditionPolicyResponse, HTTP status code, HTTP response headers (array of strings)
      */
@@ -669,7 +668,7 @@ class MarketplaceApi
      * @param  string $marketplace_id This path parameter specifies the eBay marketplace for which policy information is retrieved. See the following page for a list of valid eBay marketplace IDs: Request components. (required)
      * @param  string $filter This query parameter limits the response by returning policy information for only the selected sections of the category tree. Supply categoryId values for the sections of the tree you want returned. When you specify a categoryId value, the returned category tree includes the policies for that parent node, plus the policies for any leaf nodes below that parent node. The parameter takes a list of categoryId values and you can specify up to 50 separate category IDs. Separate multiple values with a pipe character (&#39;|&#39;). If you specify more than 50 categoryId values, eBay returns the policies for the first 50 IDs and a warning that not all categories were returned. Example: filter&#x3D;categoryIds:{100|101|102} Note that you must URL-encode the parameter list, which results in the following filter for the above example: &amp;nbsp;&amp;nbsp;filter&#x3D;categoryIds%3A%7B100%7C101%7C102%7D (optional)
      *
-     * @throws \Ebay\Sell\ApiException on non-2xx response
+     * @throws \Ebay\Sell\Metadata\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Ebay\Sell\Metadata\Model\ListingStructurePolicyResponse
      */
@@ -685,7 +684,7 @@ class MarketplaceApi
      * @param  string $marketplace_id This path parameter specifies the eBay marketplace for which policy information is retrieved. See the following page for a list of valid eBay marketplace IDs: Request components. (required)
      * @param  string $filter This query parameter limits the response by returning policy information for only the selected sections of the category tree. Supply categoryId values for the sections of the tree you want returned. When you specify a categoryId value, the returned category tree includes the policies for that parent node, plus the policies for any leaf nodes below that parent node. The parameter takes a list of categoryId values and you can specify up to 50 separate category IDs. Separate multiple values with a pipe character (&#39;|&#39;). If you specify more than 50 categoryId values, eBay returns the policies for the first 50 IDs and a warning that not all categories were returned. Example: filter&#x3D;categoryIds:{100|101|102} Note that you must URL-encode the parameter list, which results in the following filter for the above example: &amp;nbsp;&amp;nbsp;filter&#x3D;categoryIds%3A%7B100%7C101%7C102%7D (optional)
      *
-     * @throws \Ebay\Sell\ApiException on non-2xx response
+     * @throws \Ebay\Sell\Metadata\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Ebay\Sell\Metadata\Model\ListingStructurePolicyResponse, HTTP status code, HTTP response headers (array of strings)
      */
@@ -941,7 +940,7 @@ class MarketplaceApi
      * @param  string $marketplace_id This path parameter specifies the eBay marketplace for which policy information is retrieved. See the following page for a list of valid eBay marketplace IDs: Request components. (required)
      * @param  string $filter This query parameter limits the response by returning policy information for only the selected sections of the category tree. Supply categoryId values for the sections of the tree you want returned. When you specify a categoryId value, the returned category tree includes the policies for that parent node, plus the policies for any leaf nodes below that parent node. The parameter takes a list of categoryId values and you can specify up to 50 separate category IDs. Separate multiple values with a pipe character (&#39;|&#39;). If you specify more than 50 categoryId values, eBay returns the policies for the first 50 IDs and a warning that not all categories were returned. Example: filter&#x3D;categoryIds:{100|101|102} Note that you must URL-encode the parameter list, which results in the following filter for the above example: &amp;nbsp;&amp;nbsp;filter&#x3D;categoryIds%3A%7B100%7C101%7C102%7D (optional)
      *
-     * @throws \Ebay\Sell\ApiException on non-2xx response
+     * @throws \Ebay\Sell\Metadata\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Ebay\Sell\Metadata\Model\NegotiatedPricePolicyResponse
      */
@@ -957,7 +956,7 @@ class MarketplaceApi
      * @param  string $marketplace_id This path parameter specifies the eBay marketplace for which policy information is retrieved. See the following page for a list of valid eBay marketplace IDs: Request components. (required)
      * @param  string $filter This query parameter limits the response by returning policy information for only the selected sections of the category tree. Supply categoryId values for the sections of the tree you want returned. When you specify a categoryId value, the returned category tree includes the policies for that parent node, plus the policies for any leaf nodes below that parent node. The parameter takes a list of categoryId values and you can specify up to 50 separate category IDs. Separate multiple values with a pipe character (&#39;|&#39;). If you specify more than 50 categoryId values, eBay returns the policies for the first 50 IDs and a warning that not all categories were returned. Example: filter&#x3D;categoryIds:{100|101|102} Note that you must URL-encode the parameter list, which results in the following filter for the above example: &amp;nbsp;&amp;nbsp;filter&#x3D;categoryIds%3A%7B100%7C101%7C102%7D (optional)
      *
-     * @throws \Ebay\Sell\ApiException on non-2xx response
+     * @throws \Ebay\Sell\Metadata\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Ebay\Sell\Metadata\Model\NegotiatedPricePolicyResponse, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1213,7 +1212,7 @@ class MarketplaceApi
      * @param  string $marketplace_id This path parameter specifies the eBay marketplace for which policy information is retrieved. See the following page for a list of valid eBay marketplace IDs: Request components. (required)
      * @param  string $filter This query parameter limits the response by returning policy information for only the selected sections of the category tree. Supply categoryId values for the sections of the tree you want returned. When you specify a categoryId value, the returned category tree includes the policies for that parent node, plus the policies for any leaf nodes below that parent node. The parameter takes a list of categoryId values and you can specify up to 50 separate category IDs. Separate multiple values with a pipe character (&#39;|&#39;). If you specify more than 50 categoryId values, eBay returns the policies for the first 50 IDs and a warning that not all categories were returned. Example: filter&#x3D;categoryIds:{100|101|102} Note that you must URL-encode the parameter list, which results in the following filter for the above example: &amp;nbsp;&amp;nbsp;filter&#x3D;categoryIds%3A%7B100%7C101%7C102%7D (optional)
      *
-     * @throws \Ebay\Sell\ApiException on non-2xx response
+     * @throws \Ebay\Sell\Metadata\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Ebay\Sell\Metadata\Model\ProductAdoptionPolicyResponse
      */
@@ -1229,7 +1228,7 @@ class MarketplaceApi
      * @param  string $marketplace_id This path parameter specifies the eBay marketplace for which policy information is retrieved. See the following page for a list of valid eBay marketplace IDs: Request components. (required)
      * @param  string $filter This query parameter limits the response by returning policy information for only the selected sections of the category tree. Supply categoryId values for the sections of the tree you want returned. When you specify a categoryId value, the returned category tree includes the policies for that parent node, plus the policies for any leaf nodes below that parent node. The parameter takes a list of categoryId values and you can specify up to 50 separate category IDs. Separate multiple values with a pipe character (&#39;|&#39;). If you specify more than 50 categoryId values, eBay returns the policies for the first 50 IDs and a warning that not all categories were returned. Example: filter&#x3D;categoryIds:{100|101|102} Note that you must URL-encode the parameter list, which results in the following filter for the above example: &amp;nbsp;&amp;nbsp;filter&#x3D;categoryIds%3A%7B100%7C101%7C102%7D (optional)
      *
-     * @throws \Ebay\Sell\ApiException on non-2xx response
+     * @throws \Ebay\Sell\Metadata\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Ebay\Sell\Metadata\Model\ProductAdoptionPolicyResponse, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1485,7 +1484,7 @@ class MarketplaceApi
      * @param  string $marketplace_id This path parameter specifies the eBay marketplace for which policy information is retrieved. See the following page for a list of valid eBay marketplace IDs: Request components. (required)
      * @param  string $filter This query parameter limits the response by returning policy information for only the selected sections of the category tree. Supply categoryId values for the sections of the tree you want returned. When you specify a categoryId value, the returned category tree includes the policies for that parent node, plus the policies for any leaf nodes below that parent node. The parameter takes a list of categoryId values and you can specify up to 50 separate category IDs. Separate multiple values with a pipe character (&#39;|&#39;). If you specify more than 50 categoryId values, eBay returns the policies for the first 50 IDs and a warning that not all categories were returned. Example: filter&#x3D;categoryIds:{100|101|102} Note that you must URL-encode the parameter list, which results in the following filter for the above example: &amp;nbsp;&amp;nbsp;filter&#x3D;categoryIds%3A%7B100%7C101%7C102%7D (optional)
      *
-     * @throws \Ebay\Sell\ApiException on non-2xx response
+     * @throws \Ebay\Sell\Metadata\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Ebay\Sell\Metadata\Model\ReturnPolicyResponse
      */
@@ -1501,7 +1500,7 @@ class MarketplaceApi
      * @param  string $marketplace_id This path parameter specifies the eBay marketplace for which policy information is retrieved. See the following page for a list of valid eBay marketplace IDs: Request components. (required)
      * @param  string $filter This query parameter limits the response by returning policy information for only the selected sections of the category tree. Supply categoryId values for the sections of the tree you want returned. When you specify a categoryId value, the returned category tree includes the policies for that parent node, plus the policies for any leaf nodes below that parent node. The parameter takes a list of categoryId values and you can specify up to 50 separate category IDs. Separate multiple values with a pipe character (&#39;|&#39;). If you specify more than 50 categoryId values, eBay returns the policies for the first 50 IDs and a warning that not all categories were returned. Example: filter&#x3D;categoryIds:{100|101|102} Note that you must URL-encode the parameter list, which results in the following filter for the above example: &amp;nbsp;&amp;nbsp;filter&#x3D;categoryIds%3A%7B100%7C101%7C102%7D (optional)
      *
-     * @throws \Ebay\Sell\ApiException on non-2xx response
+     * @throws \Ebay\Sell\Metadata\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Ebay\Sell\Metadata\Model\ReturnPolicyResponse, HTTP status code, HTTP response headers (array of strings)
      */

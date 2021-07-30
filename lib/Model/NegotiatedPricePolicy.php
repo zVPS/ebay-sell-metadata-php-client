@@ -1,11 +1,11 @@
 <?php
 /**
- * ReturnPolicy
+ * NegotiatedPricePolicy
  *
  * PHP version 7.2
  *
  * @category Class
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Metadata
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -29,29 +29,29 @@
 namespace Ebay\Sell\Metadata\Model;
 
 use \ArrayAccess;
-use \Ebay\Sell\ObjectSerializer;
+use \Ebay\Sell\Metadata\ObjectSerializer;
 
 /**
- * ReturnPolicy Class Doc Comment
+ * NegotiatedPricePolicy Class Doc Comment
  *
  * @category Class
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Metadata
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ReturnPolicy implements ModelInterface, ArrayAccess, \JsonSerializable
+class NegotiatedPricePolicy implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ReturnPolicy';
+    protected static $openAPIModelName = 'NegotiatedPricePolicy';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,11 +59,11 @@ class ReturnPolicy implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
+        'best_offer_auto_accept_enabled' => 'bool',
+        'best_offer_auto_decline_enabled' => 'bool',
+        'best_offer_counter_enabled' => 'bool',
         'category_id' => 'string',
-        'category_tree_id' => 'string',
-        'domestic' => '\Ebay\Sell\Metadata\Model\ReturnPolicyDetails',
-        'international' => '\Ebay\Sell\Metadata\Model\ReturnPolicyDetails',
-        'required' => 'bool'
+        'category_tree_id' => 'string'
     ];
 
     /**
@@ -74,11 +74,11 @@ class ReturnPolicy implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'best_offer_auto_accept_enabled' => null,
+        'best_offer_auto_decline_enabled' => null,
+        'best_offer_counter_enabled' => null,
         'category_id' => null,
-        'category_tree_id' => null,
-        'domestic' => null,
-        'international' => null,
-        'required' => null
+        'category_tree_id' => null
     ];
 
     /**
@@ -108,11 +108,11 @@ class ReturnPolicy implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'best_offer_auto_accept_enabled' => 'bestOfferAutoAcceptEnabled',
+        'best_offer_auto_decline_enabled' => 'bestOfferAutoDeclineEnabled',
+        'best_offer_counter_enabled' => 'bestOfferCounterEnabled',
         'category_id' => 'categoryId',
-        'category_tree_id' => 'categoryTreeId',
-        'domestic' => 'domestic',
-        'international' => 'international',
-        'required' => 'required'
+        'category_tree_id' => 'categoryTreeId'
     ];
 
     /**
@@ -121,11 +121,11 @@ class ReturnPolicy implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'best_offer_auto_accept_enabled' => 'setBestOfferAutoAcceptEnabled',
+        'best_offer_auto_decline_enabled' => 'setBestOfferAutoDeclineEnabled',
+        'best_offer_counter_enabled' => 'setBestOfferCounterEnabled',
         'category_id' => 'setCategoryId',
-        'category_tree_id' => 'setCategoryTreeId',
-        'domestic' => 'setDomestic',
-        'international' => 'setInternational',
-        'required' => 'setRequired'
+        'category_tree_id' => 'setCategoryTreeId'
     ];
 
     /**
@@ -134,11 +134,11 @@ class ReturnPolicy implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'best_offer_auto_accept_enabled' => 'getBestOfferAutoAcceptEnabled',
+        'best_offer_auto_decline_enabled' => 'getBestOfferAutoDeclineEnabled',
+        'best_offer_counter_enabled' => 'getBestOfferCounterEnabled',
         'category_id' => 'getCategoryId',
-        'category_tree_id' => 'getCategoryTreeId',
-        'domestic' => 'getDomestic',
-        'international' => 'getInternational',
-        'required' => 'getRequired'
+        'category_tree_id' => 'getCategoryTreeId'
     ];
 
     /**
@@ -198,11 +198,11 @@ class ReturnPolicy implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['category_id'] = isset($data['category_id']) ? $data['category_id'] : null;
-        $this->container['category_tree_id'] = isset($data['category_tree_id']) ? $data['category_tree_id'] : null;
-        $this->container['domestic'] = isset($data['domestic']) ? $data['domestic'] : null;
-        $this->container['international'] = isset($data['international']) ? $data['international'] : null;
-        $this->container['required'] = isset($data['required']) ? $data['required'] : null;
+        $this->container['best_offer_auto_accept_enabled'] = $data['best_offer_auto_accept_enabled'] ?? null;
+        $this->container['best_offer_auto_decline_enabled'] = $data['best_offer_auto_decline_enabled'] ?? null;
+        $this->container['best_offer_counter_enabled'] = $data['best_offer_counter_enabled'] ?? null;
+        $this->container['category_id'] = $data['category_id'] ?? null;
+        $this->container['category_tree_id'] = $data['category_tree_id'] ?? null;
     }
 
     /**
@@ -230,6 +230,78 @@ class ReturnPolicy implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
+     * Gets best_offer_auto_accept_enabled
+     *
+     * @return bool|null
+     */
+    public function getBestOfferAutoAcceptEnabled()
+    {
+        return $this->container['best_offer_auto_accept_enabled'];
+    }
+
+    /**
+     * Sets best_offer_auto_accept_enabled
+     *
+     * @param bool|null $best_offer_auto_accept_enabled This flag denotes whether or not the category supports the setting of a price at which best offers are automatically accepted. If set to true, the category does support the setting of an automatic price for best-offers.
+     *
+     * @return self
+     */
+    public function setBestOfferAutoAcceptEnabled($best_offer_auto_accept_enabled)
+    {
+        $this->container['best_offer_auto_accept_enabled'] = $best_offer_auto_accept_enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets best_offer_auto_decline_enabled
+     *
+     * @return bool|null
+     */
+    public function getBestOfferAutoDeclineEnabled()
+    {
+        return $this->container['best_offer_auto_decline_enabled'];
+    }
+
+    /**
+     * Sets best_offer_auto_decline_enabled
+     *
+     * @param bool|null $best_offer_auto_decline_enabled This flag denotes whether or not the category supports the setting of an auto-decline price for best offers. If set to true, the category does support the setting of an automatic-decline price for best-offers.
+     *
+     * @return self
+     */
+    public function setBestOfferAutoDeclineEnabled($best_offer_auto_decline_enabled)
+    {
+        $this->container['best_offer_auto_decline_enabled'] = $best_offer_auto_decline_enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets best_offer_counter_enabled
+     *
+     * @return bool|null
+     */
+    public function getBestOfferCounterEnabled()
+    {
+        return $this->container['best_offer_counter_enabled'];
+    }
+
+    /**
+     * Sets best_offer_counter_enabled
+     *
+     * @param bool|null $best_offer_counter_enabled This flag denotes whether or not the category supports the setting for an automatic counter-offer on best offers. If set to true, the category does support the setting of an automatic counter-offer price for best-offers.
+     *
+     * @return self
+     */
+    public function setBestOfferCounterEnabled($best_offer_counter_enabled)
+    {
+        $this->container['best_offer_counter_enabled'] = $best_offer_counter_enabled;
+
+        return $this;
+    }
+
+    /**
      * Gets category_id
      *
      * @return string|null
@@ -242,7 +314,7 @@ class ReturnPolicy implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets category_id
      *
-     * @param string|null $category_id The category ID to which the return policies apply.
+     * @param string|null $category_id The category ID to which the negotiated-price policies apply.
      *
      * @return self
      */
@@ -276,78 +348,6 @@ class ReturnPolicy implements ModelInterface, ArrayAccess, \JsonSerializable
 
         return $this;
     }
-
-    /**
-     * Gets domestic
-     *
-     * @return \Ebay\Sell\Metadata\Model\ReturnPolicyDetails|null
-     */
-    public function getDomestic()
-    {
-        return $this->container['domestic'];
-    }
-
-    /**
-     * Sets domestic
-     *
-     * @param \Ebay\Sell\Metadata\Model\ReturnPolicyDetails|null $domestic domestic
-     *
-     * @return self
-     */
-    public function setDomestic($domestic)
-    {
-        $this->container['domestic'] = $domestic;
-
-        return $this;
-    }
-
-    /**
-     * Gets international
-     *
-     * @return \Ebay\Sell\Metadata\Model\ReturnPolicyDetails|null
-     */
-    public function getInternational()
-    {
-        return $this->container['international'];
-    }
-
-    /**
-     * Sets international
-     *
-     * @param \Ebay\Sell\Metadata\Model\ReturnPolicyDetails|null $international international
-     *
-     * @return self
-     */
-    public function setInternational($international)
-    {
-        $this->container['international'] = $international;
-
-        return $this;
-    }
-
-    /**
-     * Gets required
-     *
-     * @return bool|null
-     */
-    public function getRequired()
-    {
-        return $this->container['required'];
-    }
-
-    /**
-     * Sets required
-     *
-     * @param bool|null $required If set to true, this flag indicates that you must specify a return policy for items listed in the associated category. Note that not accepting returns (setting returnsAcceptedEnabled to false) is a valid return policy.
-     *
-     * @return self
-     */
-    public function setRequired($required)
-    {
-        $this->container['required'] = $required;
-
-        return $this;
-    }
     /**
      * Returns true if offset exists. False otherwise.
      *
@@ -369,7 +369,7 @@ class ReturnPolicy implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**

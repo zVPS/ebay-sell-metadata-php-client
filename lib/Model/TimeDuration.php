@@ -1,11 +1,11 @@
 <?php
 /**
- * ItemCondition
+ * TimeDuration
  *
  * PHP version 7.2
  *
  * @category Class
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Metadata
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -29,30 +29,30 @@
 namespace Ebay\Sell\Metadata\Model;
 
 use \ArrayAccess;
-use \Ebay\Sell\ObjectSerializer;
+use \Ebay\Sell\Metadata\ObjectSerializer;
 
 /**
- * ItemCondition Class Doc Comment
+ * TimeDuration Class Doc Comment
  *
  * @category Class
- * @description &lt;span class&#x3D;\&quot;tablenote\&quot;&gt;&lt;b&gt;Note: &lt;/b&gt;In all eBay marketplaces, Condition ID 2000 now maps to an item condition of &#39;Certified Refurbished&#39;, and not &#39;Manufacturer Refurbished&#39;. To list an item as &#39;Certified Refurbished&#39;, a seller must be pre-qualified by eBay for this feature. Any seller who is not eligible for this feature will be blocked if they try to create a new listing or revise an existing listing with this item condition. Any active listings on any eBay marketplace that had &#39;Manufacturer Refurbished&#39; as the item condition should have been automatically updated by eBay to the &#39;Seller Refurbished&#39; item condition (Condition ID 2500). &lt;br&gt;&lt;br&gt; Any seller that is interested in eligibility requirements to list with &#39;Certified Refurbished&#39; should see the &lt;a href&#x3D;\&quot;https://pages.ebay.com/seller-center/listing-and-marketing/certified-refurbished-program.html\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Certified refurbished program&lt;/a&gt; page in Seller Center. &lt;/span&gt;
- * @package  Ebay\Sell
+ * @description A complex type that specifies a period of time using a specified time-measurement unit.
+ * @package  Ebay\Sell\Metadata
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ItemCondition implements ModelInterface, ArrayAccess, \JsonSerializable
+class TimeDuration implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ItemCondition';
+    protected static $openAPIModelName = 'TimeDuration';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,8 +60,8 @@ class ItemCondition implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'condition_description' => 'string',
-        'condition_id' => 'string'
+        'unit' => 'string',
+        'value' => 'int'
     ];
 
     /**
@@ -72,8 +72,8 @@ class ItemCondition implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'condition_description' => null,
-        'condition_id' => null
+        'unit' => null,
+        'value' => null
     ];
 
     /**
@@ -103,8 +103,8 @@ class ItemCondition implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'condition_description' => 'conditionDescription',
-        'condition_id' => 'conditionId'
+        'unit' => 'unit',
+        'value' => 'value'
     ];
 
     /**
@@ -113,8 +113,8 @@ class ItemCondition implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'condition_description' => 'setConditionDescription',
-        'condition_id' => 'setConditionId'
+        'unit' => 'setUnit',
+        'value' => 'setValue'
     ];
 
     /**
@@ -123,8 +123,8 @@ class ItemCondition implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'condition_description' => 'getConditionDescription',
-        'condition_id' => 'getConditionId'
+        'unit' => 'getUnit',
+        'value' => 'getValue'
     ];
 
     /**
@@ -184,8 +184,8 @@ class ItemCondition implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['condition_description'] = isset($data['condition_description']) ? $data['condition_description'] : null;
-        $this->container['condition_id'] = isset($data['condition_id']) ? $data['condition_id'] : null;
+        $this->container['unit'] = $data['unit'] ?? null;
+        $this->container['value'] = $data['value'] ?? null;
     }
 
     /**
@@ -213,49 +213,49 @@ class ItemCondition implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets condition_description
+     * Gets unit
      *
      * @return string|null
      */
-    public function getConditionDescription()
+    public function getUnit()
     {
-        return $this->container['condition_description'];
+        return $this->container['unit'];
     }
 
     /**
-     * Sets condition_description
+     * Sets unit
      *
-     * @param string|null $condition_description The human-readable label for the condition (e.g., &quot;New&quot;). This value is typically localized for each site. Note that the display name can vary by category. For example, the description for condition ID 1000 could be called &quot;New: with Tags&quot; in one category and &quot;Brand New&quot; in another. For details on condition IDs and descriptions, see Item condition ID and name values.
+     * @param string|null $unit A time-measurement unit that specifies a singular period of time. A span of time is defined when you apply the value specified in the value field to the value specified for unit. Time-measurement units can be YEAR, MONTH, DAY, and so on. See TimeDurationUnitEnum for a complete list of possible time-measurement units. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/ba:TimeDurationUnitEnum'>eBay API documentation</a>
      *
      * @return self
      */
-    public function setConditionDescription($condition_description)
+    public function setUnit($unit)
     {
-        $this->container['condition_description'] = $condition_description;
+        $this->container['unit'] = $unit;
 
         return $this;
     }
 
     /**
-     * Gets condition_id
+     * Gets value
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getConditionId()
+    public function getValue()
     {
-        return $this->container['condition_id'];
+        return $this->container['value'];
     }
 
     /**
-     * Sets condition_id
+     * Sets value
      *
-     * @param string|null $condition_id The ID value of the selected item condition. For information on the supported condition ID values, see Item condition ID and name values.
+     * @param int|null $value An integer that represents an amount of time, as measured by the time-measurement unit specified in the unit field.
      *
      * @return self
      */
-    public function setConditionId($condition_id)
+    public function setValue($value)
     {
-        $this->container['condition_id'] = $condition_id;
+        $this->container['value'] = $value;
 
         return $this;
     }
@@ -280,7 +280,7 @@ class ItemCondition implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**

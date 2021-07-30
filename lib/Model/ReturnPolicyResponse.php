@@ -1,11 +1,11 @@
 <?php
 /**
- * ProductAdoptionPolicyResponse
+ * ReturnPolicyResponse
  *
  * PHP version 7.2
  *
  * @category Class
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Metadata
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -29,30 +29,29 @@
 namespace Ebay\Sell\Metadata\Model;
 
 use \ArrayAccess;
-use \Ebay\Sell\ObjectSerializer;
+use \Ebay\Sell\Metadata\ObjectSerializer;
 
 /**
- * ProductAdoptionPolicyResponse Class Doc Comment
+ * ReturnPolicyResponse Class Doc Comment
  *
  * @category Class
- * @description This is the response object returned by a call to getProductAdoptionPolicies.
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Metadata
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ProductAdoptionPolicyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class ReturnPolicyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ProductAdoptionPolicyResponse';
+    protected static $openAPIModelName = 'ReturnPolicyResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,7 +59,7 @@ class ProductAdoptionPolicyResponse implements ModelInterface, ArrayAccess, \Jso
       * @var string[]
       */
     protected static $openAPITypes = [
-        'product_adoption_policies' => '\Ebay\Sell\Metadata\Model\ProductAdoptionPolicy[]',
+        'return_policies' => '\Ebay\Sell\Metadata\Model\ReturnPolicy[]',
         'warnings' => '\Ebay\Sell\Metadata\Model\Error[]'
     ];
 
@@ -72,7 +71,7 @@ class ProductAdoptionPolicyResponse implements ModelInterface, ArrayAccess, \Jso
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'product_adoption_policies' => null,
+        'return_policies' => null,
         'warnings' => null
     ];
 
@@ -103,7 +102,7 @@ class ProductAdoptionPolicyResponse implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $attributeMap = [
-        'product_adoption_policies' => 'productAdoptionPolicies',
+        'return_policies' => 'returnPolicies',
         'warnings' => 'warnings'
     ];
 
@@ -113,7 +112,7 @@ class ProductAdoptionPolicyResponse implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $setters = [
-        'product_adoption_policies' => 'setProductAdoptionPolicies',
+        'return_policies' => 'setReturnPolicies',
         'warnings' => 'setWarnings'
     ];
 
@@ -123,7 +122,7 @@ class ProductAdoptionPolicyResponse implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $getters = [
-        'product_adoption_policies' => 'getProductAdoptionPolicies',
+        'return_policies' => 'getReturnPolicies',
         'warnings' => 'getWarnings'
     ];
 
@@ -184,8 +183,8 @@ class ProductAdoptionPolicyResponse implements ModelInterface, ArrayAccess, \Jso
      */
     public function __construct(array $data = null)
     {
-        $this->container['product_adoption_policies'] = isset($data['product_adoption_policies']) ? $data['product_adoption_policies'] : null;
-        $this->container['warnings'] = isset($data['warnings']) ? $data['warnings'] : null;
+        $this->container['return_policies'] = $data['return_policies'] ?? null;
+        $this->container['warnings'] = $data['warnings'] ?? null;
     }
 
     /**
@@ -213,25 +212,25 @@ class ProductAdoptionPolicyResponse implements ModelInterface, ArrayAccess, \Jso
 
 
     /**
-     * Gets product_adoption_policies
+     * Gets return_policies
      *
-     * @return \Ebay\Sell\Metadata\Model\ProductAdoptionPolicy[]|null
+     * @return \Ebay\Sell\Metadata\Model\ReturnPolicy[]|null
      */
-    public function getProductAdoptionPolicies()
+    public function getReturnPolicies()
     {
-        return $this->container['product_adoption_policies'];
+        return $this->container['return_policies'];
     }
 
     /**
-     * Sets product_adoption_policies
+     * Sets return_policies
      *
-     * @param \Ebay\Sell\Metadata\Model\ProductAdoptionPolicy[]|null $product_adoption_policies A list of category IDs from the marketplace specified in the request where each returned element represents a leaf node in the category tree. Each element in the list contains the policies governing whether or not items listed in that category must include an ePID value (which links the item to the eBay Catalog).
+     * @param \Ebay\Sell\Metadata\Model\ReturnPolicy[]|null $return_policies A list of elements, where each contains a category ID and a flag that indicates whether or not listings in that category require a return policy.
      *
      * @return self
      */
-    public function setProductAdoptionPolicies($product_adoption_policies)
+    public function setReturnPolicies($return_policies)
     {
-        $this->container['product_adoption_policies'] = $product_adoption_policies;
+        $this->container['return_policies'] = $return_policies;
 
         return $this;
     }
@@ -280,7 +279,7 @@ class ProductAdoptionPolicyResponse implements ModelInterface, ArrayAccess, \Jso
      */
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**

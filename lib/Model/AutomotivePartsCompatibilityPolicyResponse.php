@@ -1,11 +1,11 @@
 <?php
 /**
- * ErrorParameter
+ * AutomotivePartsCompatibilityPolicyResponse
  *
  * PHP version 7.2
  *
  * @category Class
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Metadata
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -29,30 +29,29 @@
 namespace Ebay\Sell\Metadata\Model;
 
 use \ArrayAccess;
-use \Ebay\Sell\ObjectSerializer;
+use \Ebay\Sell\Metadata\ObjectSerializer;
 
 /**
- * ErrorParameter Class Doc Comment
+ * AutomotivePartsCompatibilityPolicyResponse Class Doc Comment
  *
  * @category Class
- * @description Container for a error parameter.
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Metadata
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ErrorParameter implements ModelInterface, ArrayAccess, \JsonSerializable
+class AutomotivePartsCompatibilityPolicyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ErrorParameter';
+    protected static $openAPIModelName = 'AutomotivePartsCompatibilityPolicyResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,8 +59,8 @@ class ErrorParameter implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'name' => 'string',
-        'value' => 'string'
+        'automotive_parts_compatibility_policies' => '\Ebay\Sell\Metadata\Model\AutomotivePartsCompatibilityPolicy[]',
+        'warnings' => '\Ebay\Sell\Metadata\Model\Error[]'
     ];
 
     /**
@@ -72,8 +71,8 @@ class ErrorParameter implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'name' => null,
-        'value' => null
+        'automotive_parts_compatibility_policies' => null,
+        'warnings' => null
     ];
 
     /**
@@ -103,8 +102,8 @@ class ErrorParameter implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name',
-        'value' => 'value'
+        'automotive_parts_compatibility_policies' => 'automotivePartsCompatibilityPolicies',
+        'warnings' => 'warnings'
     ];
 
     /**
@@ -113,8 +112,8 @@ class ErrorParameter implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'value' => 'setValue'
+        'automotive_parts_compatibility_policies' => 'setAutomotivePartsCompatibilityPolicies',
+        'warnings' => 'setWarnings'
     ];
 
     /**
@@ -123,8 +122,8 @@ class ErrorParameter implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'value' => 'getValue'
+        'automotive_parts_compatibility_policies' => 'getAutomotivePartsCompatibilityPolicies',
+        'warnings' => 'getWarnings'
     ];
 
     /**
@@ -184,8 +183,8 @@ class ErrorParameter implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['automotive_parts_compatibility_policies'] = $data['automotive_parts_compatibility_policies'] ?? null;
+        $this->container['warnings'] = $data['warnings'] ?? null;
     }
 
     /**
@@ -213,49 +212,49 @@ class ErrorParameter implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets name
+     * Gets automotive_parts_compatibility_policies
      *
-     * @return string|null
+     * @return \Ebay\Sell\Metadata\Model\AutomotivePartsCompatibilityPolicy[]|null
      */
-    public function getName()
+    public function getAutomotivePartsCompatibilityPolicies()
     {
-        return $this->container['name'];
+        return $this->container['automotive_parts_compatibility_policies'];
     }
 
     /**
-     * Sets name
+     * Sets automotive_parts_compatibility_policies
      *
-     * @param string|null $name Name of the entity that threw the error.
+     * @param \Ebay\Sell\Metadata\Model\AutomotivePartsCompatibilityPolicy[]|null $automotive_parts_compatibility_policies A list of category IDs and the automotive-parts-compatibility policies for each of the listed categories.
      *
      * @return self
      */
-    public function setName($name)
+    public function setAutomotivePartsCompatibilityPolicies($automotive_parts_compatibility_policies)
     {
-        $this->container['name'] = $name;
+        $this->container['automotive_parts_compatibility_policies'] = $automotive_parts_compatibility_policies;
 
         return $this;
     }
 
     /**
-     * Gets value
+     * Gets warnings
      *
-     * @return string|null
+     * @return \Ebay\Sell\Metadata\Model\Error[]|null
      */
-    public function getValue()
+    public function getWarnings()
     {
-        return $this->container['value'];
+        return $this->container['warnings'];
     }
 
     /**
-     * Sets value
+     * Sets warnings
      *
-     * @param string|null $value A description of the error.
+     * @param \Ebay\Sell\Metadata\Model\Error[]|null $warnings A list of the warnings that were generated as a result of the request. This field is not returned if no warnings were generated by the request.
      *
      * @return self
      */
-    public function setValue($value)
+    public function setWarnings($warnings)
     {
-        $this->container['value'] = $value;
+        $this->container['warnings'] = $warnings;
 
         return $this;
     }
@@ -280,7 +279,7 @@ class ErrorParameter implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**

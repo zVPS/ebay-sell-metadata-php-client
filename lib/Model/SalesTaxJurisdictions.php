@@ -1,11 +1,11 @@
 <?php
 /**
- * ItemConditionPolicy
+ * SalesTaxJurisdictions
  *
  * PHP version 7.2
  *
  * @category Class
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Metadata
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -29,29 +29,30 @@
 namespace Ebay\Sell\Metadata\Model;
 
 use \ArrayAccess;
-use \Ebay\Sell\ObjectSerializer;
+use \Ebay\Sell\Metadata\ObjectSerializer;
 
 /**
- * ItemConditionPolicy Class Doc Comment
+ * SalesTaxJurisdictions Class Doc Comment
  *
  * @category Class
- * @package  Ebay\Sell
+ * @description This complex type contains a list of sales tax jurisdictions.
+ * @package  Ebay\Sell\Metadata
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ItemConditionPolicy implements ModelInterface, ArrayAccess, \JsonSerializable
+class SalesTaxJurisdictions implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ItemConditionPolicy';
+    protected static $openAPIModelName = 'SalesTaxJurisdictions';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,10 +60,7 @@ class ItemConditionPolicy implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'category_id' => 'string',
-        'category_tree_id' => 'string',
-        'item_condition_required' => 'bool',
-        'item_conditions' => '\Ebay\Sell\Metadata\Model\ItemCondition[]'
+        'sales_tax_jurisdictions' => '\Ebay\Sell\Metadata\Model\SalesTaxJurisdiction[]'
     ];
 
     /**
@@ -73,10 +71,7 @@ class ItemConditionPolicy implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'category_id' => null,
-        'category_tree_id' => null,
-        'item_condition_required' => null,
-        'item_conditions' => null
+        'sales_tax_jurisdictions' => null
     ];
 
     /**
@@ -106,10 +101,7 @@ class ItemConditionPolicy implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'category_id' => 'categoryId',
-        'category_tree_id' => 'categoryTreeId',
-        'item_condition_required' => 'itemConditionRequired',
-        'item_conditions' => 'itemConditions'
+        'sales_tax_jurisdictions' => 'salesTaxJurisdictions'
     ];
 
     /**
@@ -118,10 +110,7 @@ class ItemConditionPolicy implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'category_id' => 'setCategoryId',
-        'category_tree_id' => 'setCategoryTreeId',
-        'item_condition_required' => 'setItemConditionRequired',
-        'item_conditions' => 'setItemConditions'
+        'sales_tax_jurisdictions' => 'setSalesTaxJurisdictions'
     ];
 
     /**
@@ -130,10 +119,7 @@ class ItemConditionPolicy implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'category_id' => 'getCategoryId',
-        'category_tree_id' => 'getCategoryTreeId',
-        'item_condition_required' => 'getItemConditionRequired',
-        'item_conditions' => 'getItemConditions'
+        'sales_tax_jurisdictions' => 'getSalesTaxJurisdictions'
     ];
 
     /**
@@ -193,10 +179,7 @@ class ItemConditionPolicy implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['category_id'] = isset($data['category_id']) ? $data['category_id'] : null;
-        $this->container['category_tree_id'] = isset($data['category_tree_id']) ? $data['category_tree_id'] : null;
-        $this->container['item_condition_required'] = isset($data['item_condition_required']) ? $data['item_condition_required'] : null;
-        $this->container['item_conditions'] = isset($data['item_conditions']) ? $data['item_conditions'] : null;
+        $this->container['sales_tax_jurisdictions'] = $data['sales_tax_jurisdictions'] ?? null;
     }
 
     /**
@@ -224,97 +207,25 @@ class ItemConditionPolicy implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets category_id
+     * Gets sales_tax_jurisdictions
      *
-     * @return string|null
+     * @return \Ebay\Sell\Metadata\Model\SalesTaxJurisdiction[]|null
      */
-    public function getCategoryId()
+    public function getSalesTaxJurisdictions()
     {
-        return $this->container['category_id'];
+        return $this->container['sales_tax_jurisdictions'];
     }
 
     /**
-     * Sets category_id
+     * Sets sales_tax_jurisdictions
      *
-     * @param string|null $category_id The category ID to which the item-condition policy applies.
+     * @param \Ebay\Sell\Metadata\Model\SalesTaxJurisdiction[]|null $sales_tax_jurisdictions A list of sales tax jurisdictions.
      *
      * @return self
      */
-    public function setCategoryId($category_id)
+    public function setSalesTaxJurisdictions($sales_tax_jurisdictions)
     {
-        $this->container['category_id'] = $category_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets category_tree_id
-     *
-     * @return string|null
-     */
-    public function getCategoryTreeId()
-    {
-        return $this->container['category_tree_id'];
-    }
-
-    /**
-     * Sets category_tree_id
-     *
-     * @param string|null $category_tree_id A value that indicates the root node of the category tree used for the response set. Each marketplace is based on a category tree whose root node is indicated by this unique category ID value. All category policy information returned by this call pertains to the categories included below this root node of the tree. A category tree is a hierarchical framework of eBay categories that begins at the root node of the tree and extends to include all the child nodes in the tree. Each child node in the tree is an eBay category that is represented by a unique categoryId value. Within a category tree, the root node has no parent node and leaf nodes are nodes that have no child nodes.
-     *
-     * @return self
-     */
-    public function setCategoryTreeId($category_tree_id)
-    {
-        $this->container['category_tree_id'] = $category_tree_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets item_condition_required
-     *
-     * @return bool|null
-     */
-    public function getItemConditionRequired()
-    {
-        return $this->container['item_condition_required'];
-    }
-
-    /**
-     * Sets item_condition_required
-     *
-     * @param bool|null $item_condition_required This flag denotes whether or not you must list the item condition in a listing for the specified category. If set to true, you must specify an item condition for the associated category.
-     *
-     * @return self
-     */
-    public function setItemConditionRequired($item_condition_required)
-    {
-        $this->container['item_condition_required'] = $item_condition_required;
-
-        return $this;
-    }
-
-    /**
-     * Gets item_conditions
-     *
-     * @return \Ebay\Sell\Metadata\Model\ItemCondition[]|null
-     */
-    public function getItemConditions()
-    {
-        return $this->container['item_conditions'];
-    }
-
-    /**
-     * Sets item_conditions
-     *
-     * @param \Ebay\Sell\Metadata\Model\ItemCondition[]|null $item_conditions The item-condition values allowed in the category. Note: In all eBay marketplaces, Condition ID 2000 now maps to an item condition of 'Certified Refurbished', and not 'Manufacturer Refurbished'. To list an item as 'Certified Refurbished', a seller must be pre-qualified by eBay for this feature. Any seller who is not eligible for this feature will be blocked if they try to create a new listing or revise an existing listing with this item condition. Any active listings on any eBay marketplace that had 'Manufacturer Refurbished' as the item condition should have been automatically updated by eBay to the 'Seller Refurbished' item condition (Condition ID 2500). Any seller that is interested in eligibility requirements to list with 'Certified Refurbished' should see the Certified refurbished program page in Seller Center.
-     *
-     * @return self
-     */
-    public function setItemConditions($item_conditions)
-    {
-        $this->container['item_conditions'] = $item_conditions;
+        $this->container['sales_tax_jurisdictions'] = $sales_tax_jurisdictions;
 
         return $this;
     }
@@ -339,7 +250,7 @@ class ItemConditionPolicy implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**

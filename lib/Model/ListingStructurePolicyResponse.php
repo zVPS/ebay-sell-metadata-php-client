@@ -1,11 +1,11 @@
 <?php
 /**
- * SalesTaxJurisdictions
+ * ListingStructurePolicyResponse
  *
  * PHP version 7.2
  *
  * @category Class
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Metadata
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -29,30 +29,29 @@
 namespace Ebay\Sell\Metadata\Model;
 
 use \ArrayAccess;
-use \Ebay\Sell\ObjectSerializer;
+use \Ebay\Sell\Metadata\ObjectSerializer;
 
 /**
- * SalesTaxJurisdictions Class Doc Comment
+ * ListingStructurePolicyResponse Class Doc Comment
  *
  * @category Class
- * @description This complex type contains a list of sales tax jurisdictions.
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Metadata
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class SalesTaxJurisdictions implements ModelInterface, ArrayAccess, \JsonSerializable
+class ListingStructurePolicyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SalesTaxJurisdictions';
+    protected static $openAPIModelName = 'ListingStructurePolicyResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,7 +59,8 @@ class SalesTaxJurisdictions implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var string[]
       */
     protected static $openAPITypes = [
-        'sales_tax_jurisdictions' => '\Ebay\Sell\Metadata\Model\SalesTaxJurisdiction[]'
+        'listing_structure_policies' => '\Ebay\Sell\Metadata\Model\ListingStructurePolicy[]',
+        'warnings' => '\Ebay\Sell\Metadata\Model\Error[]'
     ];
 
     /**
@@ -71,7 +71,8 @@ class SalesTaxJurisdictions implements ModelInterface, ArrayAccess, \JsonSeriali
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'sales_tax_jurisdictions' => null
+        'listing_structure_policies' => null,
+        'warnings' => null
     ];
 
     /**
@@ -101,7 +102,8 @@ class SalesTaxJurisdictions implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $attributeMap = [
-        'sales_tax_jurisdictions' => 'salesTaxJurisdictions'
+        'listing_structure_policies' => 'listingStructurePolicies',
+        'warnings' => 'warnings'
     ];
 
     /**
@@ -110,7 +112,8 @@ class SalesTaxJurisdictions implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $setters = [
-        'sales_tax_jurisdictions' => 'setSalesTaxJurisdictions'
+        'listing_structure_policies' => 'setListingStructurePolicies',
+        'warnings' => 'setWarnings'
     ];
 
     /**
@@ -119,7 +122,8 @@ class SalesTaxJurisdictions implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $getters = [
-        'sales_tax_jurisdictions' => 'getSalesTaxJurisdictions'
+        'listing_structure_policies' => 'getListingStructurePolicies',
+        'warnings' => 'getWarnings'
     ];
 
     /**
@@ -179,7 +183,8 @@ class SalesTaxJurisdictions implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function __construct(array $data = null)
     {
-        $this->container['sales_tax_jurisdictions'] = isset($data['sales_tax_jurisdictions']) ? $data['sales_tax_jurisdictions'] : null;
+        $this->container['listing_structure_policies'] = $data['listing_structure_policies'] ?? null;
+        $this->container['warnings'] = $data['warnings'] ?? null;
     }
 
     /**
@@ -207,25 +212,49 @@ class SalesTaxJurisdictions implements ModelInterface, ArrayAccess, \JsonSeriali
 
 
     /**
-     * Gets sales_tax_jurisdictions
+     * Gets listing_structure_policies
      *
-     * @return \Ebay\Sell\Metadata\Model\SalesTaxJurisdiction[]|null
+     * @return \Ebay\Sell\Metadata\Model\ListingStructurePolicy[]|null
      */
-    public function getSalesTaxJurisdictions()
+    public function getListingStructurePolicies()
     {
-        return $this->container['sales_tax_jurisdictions'];
+        return $this->container['listing_structure_policies'];
     }
 
     /**
-     * Sets sales_tax_jurisdictions
+     * Sets listing_structure_policies
      *
-     * @param \Ebay\Sell\Metadata\Model\SalesTaxJurisdiction[]|null $sales_tax_jurisdictions A list of sales tax jurisdictions.
+     * @param \Ebay\Sell\Metadata\Model\ListingStructurePolicy[]|null $listing_structure_policies Returns a list of category IDs plus a flag indicating whether or not each listed category supports item variations.
      *
      * @return self
      */
-    public function setSalesTaxJurisdictions($sales_tax_jurisdictions)
+    public function setListingStructurePolicies($listing_structure_policies)
     {
-        $this->container['sales_tax_jurisdictions'] = $sales_tax_jurisdictions;
+        $this->container['listing_structure_policies'] = $listing_structure_policies;
+
+        return $this;
+    }
+
+    /**
+     * Gets warnings
+     *
+     * @return \Ebay\Sell\Metadata\Model\Error[]|null
+     */
+    public function getWarnings()
+    {
+        return $this->container['warnings'];
+    }
+
+    /**
+     * Sets warnings
+     *
+     * @param \Ebay\Sell\Metadata\Model\Error[]|null $warnings A list of the warnings that were generated as a result of the request. This field is not returned if no warnings were generated by the request.
+     *
+     * @return self
+     */
+    public function setWarnings($warnings)
+    {
+        $this->container['warnings'] = $warnings;
 
         return $this;
     }
@@ -250,7 +279,7 @@ class SalesTaxJurisdictions implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**

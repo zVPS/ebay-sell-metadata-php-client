@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Metadata
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -29,13 +29,13 @@
 namespace Ebay\Sell\Metadata\Model;
 
 use \ArrayAccess;
-use \Ebay\Sell\ObjectSerializer;
+use \Ebay\Sell\Metadata\ObjectSerializer;
 
 /**
  * ItemConditionPolicyResponse Class Doc Comment
  *
  * @category Class
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Metadata
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -44,7 +44,7 @@ use \Ebay\Sell\ObjectSerializer;
  */
 class ItemConditionPolicyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -183,8 +183,8 @@ class ItemConditionPolicyResponse implements ModelInterface, ArrayAccess, \JsonS
      */
     public function __construct(array $data = null)
     {
-        $this->container['item_condition_policies'] = isset($data['item_condition_policies']) ? $data['item_condition_policies'] : null;
-        $this->container['warnings'] = isset($data['warnings']) ? $data['warnings'] : null;
+        $this->container['item_condition_policies'] = $data['item_condition_policies'] ?? null;
+        $this->container['warnings'] = $data['warnings'] ?? null;
     }
 
     /**
@@ -279,7 +279,7 @@ class ItemConditionPolicyResponse implements ModelInterface, ArrayAccess, \JsonS
      */
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**

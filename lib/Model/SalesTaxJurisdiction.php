@@ -1,11 +1,11 @@
 <?php
 /**
- * ReturnPolicyResponse
+ * SalesTaxJurisdiction
  *
  * PHP version 7.2
  *
  * @category Class
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Metadata
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -29,29 +29,30 @@
 namespace Ebay\Sell\Metadata\Model;
 
 use \ArrayAccess;
-use \Ebay\Sell\ObjectSerializer;
+use \Ebay\Sell\Metadata\ObjectSerializer;
 
 /**
- * ReturnPolicyResponse Class Doc Comment
+ * SalesTaxJurisdiction Class Doc Comment
  *
  * @category Class
- * @package  Ebay\Sell
+ * @description A unique ID for a sales tax jurisdiction.
+ * @package  Ebay\Sell\Metadata
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ReturnPolicyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class SalesTaxJurisdiction implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ReturnPolicyResponse';
+    protected static $openAPIModelName = 'SalesTaxJurisdiction';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,8 +60,7 @@ class ReturnPolicyResponse implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
-        'return_policies' => '\Ebay\Sell\Metadata\Model\ReturnPolicy[]',
-        'warnings' => '\Ebay\Sell\Metadata\Model\Error[]'
+        'sales_tax_jurisdiction_id' => 'string'
     ];
 
     /**
@@ -71,8 +71,7 @@ class ReturnPolicyResponse implements ModelInterface, ArrayAccess, \JsonSerializ
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'return_policies' => null,
-        'warnings' => null
+        'sales_tax_jurisdiction_id' => null
     ];
 
     /**
@@ -102,8 +101,7 @@ class ReturnPolicyResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $attributeMap = [
-        'return_policies' => 'returnPolicies',
-        'warnings' => 'warnings'
+        'sales_tax_jurisdiction_id' => 'salesTaxJurisdictionId'
     ];
 
     /**
@@ -112,8 +110,7 @@ class ReturnPolicyResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $setters = [
-        'return_policies' => 'setReturnPolicies',
-        'warnings' => 'setWarnings'
+        'sales_tax_jurisdiction_id' => 'setSalesTaxJurisdictionId'
     ];
 
     /**
@@ -122,8 +119,7 @@ class ReturnPolicyResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $getters = [
-        'return_policies' => 'getReturnPolicies',
-        'warnings' => 'getWarnings'
+        'sales_tax_jurisdiction_id' => 'getSalesTaxJurisdictionId'
     ];
 
     /**
@@ -183,8 +179,7 @@ class ReturnPolicyResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function __construct(array $data = null)
     {
-        $this->container['return_policies'] = isset($data['return_policies']) ? $data['return_policies'] : null;
-        $this->container['warnings'] = isset($data['warnings']) ? $data['warnings'] : null;
+        $this->container['sales_tax_jurisdiction_id'] = $data['sales_tax_jurisdiction_id'] ?? null;
     }
 
     /**
@@ -212,49 +207,25 @@ class ReturnPolicyResponse implements ModelInterface, ArrayAccess, \JsonSerializ
 
 
     /**
-     * Gets return_policies
+     * Gets sales_tax_jurisdiction_id
      *
-     * @return \Ebay\Sell\Metadata\Model\ReturnPolicy[]|null
+     * @return string|null
      */
-    public function getReturnPolicies()
+    public function getSalesTaxJurisdictionId()
     {
-        return $this->container['return_policies'];
+        return $this->container['sales_tax_jurisdiction_id'];
     }
 
     /**
-     * Sets return_policies
+     * Sets sales_tax_jurisdiction_id
      *
-     * @param \Ebay\Sell\Metadata\Model\ReturnPolicy[]|null $return_policies A list of elements, where each contains a category ID and a flag that indicates whether or not listings in that category require a return policy.
+     * @param string|null $sales_tax_jurisdiction_id The unique ID for a sales tax jurisdiction.
      *
      * @return self
      */
-    public function setReturnPolicies($return_policies)
+    public function setSalesTaxJurisdictionId($sales_tax_jurisdiction_id)
     {
-        $this->container['return_policies'] = $return_policies;
-
-        return $this;
-    }
-
-    /**
-     * Gets warnings
-     *
-     * @return \Ebay\Sell\Metadata\Model\Error[]|null
-     */
-    public function getWarnings()
-    {
-        return $this->container['warnings'];
-    }
-
-    /**
-     * Sets warnings
-     *
-     * @param \Ebay\Sell\Metadata\Model\Error[]|null $warnings A list of the warnings that were generated as a result of the request. This field is not returned if no warnings were generated by the request.
-     *
-     * @return self
-     */
-    public function setWarnings($warnings)
-    {
-        $this->container['warnings'] = $warnings;
+        $this->container['sales_tax_jurisdiction_id'] = $sales_tax_jurisdiction_id;
 
         return $this;
     }
@@ -279,7 +250,7 @@ class ReturnPolicyResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**
