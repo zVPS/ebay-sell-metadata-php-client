@@ -44,7 +44,7 @@ use \Ebay\Sell\Metadata\ObjectSerializer;
  */
 class ListingStructurePolicy implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -188,9 +188,9 @@ class ListingStructurePolicy implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function __construct(array $data = null)
     {
-        $this->container['category_id'] = $data['category_id'] ?? null;
-        $this->container['category_tree_id'] = $data['category_tree_id'] ?? null;
-        $this->container['variations_supported'] = $data['variations_supported'] ?? null;
+        $this->container['category_id'] = isset($data['category_id']) ? $data['category_id'] : null;
+        $this->container['category_tree_id'] = isset($data['category_tree_id']) ? $data['category_tree_id'] : null;
+        $this->container['variations_supported'] = isset($data['variations_supported']) ? $data['variations_supported'] : null;
     }
 
     /**
@@ -309,7 +309,7 @@ class ListingStructurePolicy implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

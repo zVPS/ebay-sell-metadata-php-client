@@ -45,7 +45,7 @@ use \Ebay\Sell\Metadata\ObjectSerializer;
  */
 class ItemCondition implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -184,8 +184,8 @@ class ItemCondition implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['condition_description'] = $data['condition_description'] ?? null;
-        $this->container['condition_id'] = $data['condition_id'] ?? null;
+        $this->container['condition_description'] = isset($data['condition_description']) ? $data['condition_description'] : null;
+        $this->container['condition_id'] = isset($data['condition_id']) ? $data['condition_id'] : null;
     }
 
     /**
@@ -280,7 +280,7 @@ class ItemCondition implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

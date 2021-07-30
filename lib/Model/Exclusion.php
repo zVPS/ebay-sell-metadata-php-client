@@ -45,7 +45,7 @@ use \Ebay\Sell\Metadata\ObjectSerializer;
  */
 class Exclusion implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -179,7 +179,7 @@ class Exclusion implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['brands'] = $data['brands'] ?? null;
+        $this->container['brands'] = isset($data['brands']) ? $data['brands'] : null;
     }
 
     /**
@@ -250,7 +250,7 @@ class Exclusion implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

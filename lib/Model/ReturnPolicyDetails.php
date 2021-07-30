@@ -45,7 +45,7 @@ use \Ebay\Sell\Metadata\ObjectSerializer;
  */
 class ReturnPolicyDetails implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -204,12 +204,12 @@ class ReturnPolicyDetails implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['policy_description_enabled'] = $data['policy_description_enabled'] ?? null;
-        $this->container['refund_methods'] = $data['refund_methods'] ?? null;
-        $this->container['return_methods'] = $data['return_methods'] ?? null;
-        $this->container['return_periods'] = $data['return_periods'] ?? null;
-        $this->container['returns_acceptance_enabled'] = $data['returns_acceptance_enabled'] ?? null;
-        $this->container['return_shipping_cost_payers'] = $data['return_shipping_cost_payers'] ?? null;
+        $this->container['policy_description_enabled'] = isset($data['policy_description_enabled']) ? $data['policy_description_enabled'] : null;
+        $this->container['refund_methods'] = isset($data['refund_methods']) ? $data['refund_methods'] : null;
+        $this->container['return_methods'] = isset($data['return_methods']) ? $data['return_methods'] : null;
+        $this->container['return_periods'] = isset($data['return_periods']) ? $data['return_periods'] : null;
+        $this->container['returns_acceptance_enabled'] = isset($data['returns_acceptance_enabled']) ? $data['returns_acceptance_enabled'] : null;
+        $this->container['return_shipping_cost_payers'] = isset($data['return_shipping_cost_payers']) ? $data['return_shipping_cost_payers'] : null;
     }
 
     /**
@@ -400,7 +400,7 @@ class ReturnPolicyDetails implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

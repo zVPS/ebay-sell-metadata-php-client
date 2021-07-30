@@ -44,7 +44,7 @@ use \Ebay\Sell\Metadata\ObjectSerializer;
  */
 class AutomotivePartsCompatibilityPolicy implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -198,11 +198,11 @@ class AutomotivePartsCompatibilityPolicy implements ModelInterface, ArrayAccess,
      */
     public function __construct(array $data = null)
     {
-        $this->container['category_id'] = $data['category_id'] ?? null;
-        $this->container['category_tree_id'] = $data['category_tree_id'] ?? null;
-        $this->container['compatibility_based_on'] = $data['compatibility_based_on'] ?? null;
-        $this->container['compatible_vehicle_types'] = $data['compatible_vehicle_types'] ?? null;
-        $this->container['max_number_of_compatible_vehicles'] = $data['max_number_of_compatible_vehicles'] ?? null;
+        $this->container['category_id'] = isset($data['category_id']) ? $data['category_id'] : null;
+        $this->container['category_tree_id'] = isset($data['category_tree_id']) ? $data['category_tree_id'] : null;
+        $this->container['compatibility_based_on'] = isset($data['compatibility_based_on']) ? $data['compatibility_based_on'] : null;
+        $this->container['compatible_vehicle_types'] = isset($data['compatible_vehicle_types']) ? $data['compatible_vehicle_types'] : null;
+        $this->container['max_number_of_compatible_vehicles'] = isset($data['max_number_of_compatible_vehicles']) ? $data['max_number_of_compatible_vehicles'] : null;
     }
 
     /**
@@ -369,7 +369,7 @@ class AutomotivePartsCompatibilityPolicy implements ModelInterface, ArrayAccess,
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

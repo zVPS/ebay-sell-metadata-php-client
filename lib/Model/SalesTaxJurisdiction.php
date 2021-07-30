@@ -45,7 +45,7 @@ use \Ebay\Sell\Metadata\ObjectSerializer;
  */
 class SalesTaxJurisdiction implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -179,7 +179,7 @@ class SalesTaxJurisdiction implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function __construct(array $data = null)
     {
-        $this->container['sales_tax_jurisdiction_id'] = $data['sales_tax_jurisdiction_id'] ?? null;
+        $this->container['sales_tax_jurisdiction_id'] = isset($data['sales_tax_jurisdiction_id']) ? $data['sales_tax_jurisdiction_id'] : null;
     }
 
     /**
@@ -250,7 +250,7 @@ class SalesTaxJurisdiction implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

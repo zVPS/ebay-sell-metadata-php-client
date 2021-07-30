@@ -44,7 +44,7 @@ use \Ebay\Sell\Metadata\ObjectSerializer;
  */
 class AutomotivePartsCompatibilityPolicyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -183,8 +183,8 @@ class AutomotivePartsCompatibilityPolicyResponse implements ModelInterface, Arra
      */
     public function __construct(array $data = null)
     {
-        $this->container['automotive_parts_compatibility_policies'] = $data['automotive_parts_compatibility_policies'] ?? null;
-        $this->container['warnings'] = $data['warnings'] ?? null;
+        $this->container['automotive_parts_compatibility_policies'] = isset($data['automotive_parts_compatibility_policies']) ? $data['automotive_parts_compatibility_policies'] : null;
+        $this->container['warnings'] = isset($data['warnings']) ? $data['warnings'] : null;
     }
 
     /**
@@ -279,7 +279,7 @@ class AutomotivePartsCompatibilityPolicyResponse implements ModelInterface, Arra
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

@@ -1,5 +1,5 @@
 {
-    "name": "zvps/ebay-sell-metadata-php-client",
+    "name": "zvps\/ebay-sell-metadata-php-client",
     "version": "5.0.0",
     "description": "The Metadata API has operations that retrieve configuration details pertaining to the different eBay marketplaces. In addition to marketplace information, the API also has operations that get information that helps sellers list items on eBay.",
     "keywords": [
@@ -11,29 +11,33 @@
         "rest",
         "api"
     ],
-    "homepage": "https://openapi-generator.tech",
+    "homepage": "https:\/\/openapi-generator.tech",
     "license": "unlicense",
     "authors": [
         {
             "name": "OpenAPI-Generator contributors",
-            "homepage": "https://openapi-generator.tech"
+            "homepage": "https:\/\/openapi-generator.tech"
         }
     ],
     "require": {
-        "php": ">=7.2",
+        "php": ">=5.6",
         "ext-curl": "*",
         "ext-json": "*",
         "ext-mbstring": "*",
-        "guzzlehttp/guzzle": "^6.2"
+        "guzzlehttp\/guzzle": "^6.2"
     },
     "require-dev": {
-        "phpunit/phpunit": "^8.0 || ^9.0",
-        "friendsofphp/php-cs-fixer": "^2.12"
+        "phpunit\/phpunit": "^8.0 || ^9.0",
+        "friendsofphp\/php-cs-fixer": "^2.12"
     },
     "autoload": {
-        "psr-4": { "Ebay\\Sell\\Metadata\\" : "lib/" }
+        "psr-4": {
+            "Ebay\\Sell\\Metadata\\": "lib\/"
+        }
     },
     "autoload-dev": {
-        "psr-4": { "Ebay\\Sell\\Metadata\\Test\\" : "test/" }
+        "psr-4": {
+            "Ebay\\Sell\\Metadata\\Test\\": "test\/"
+        }
     }
 }

@@ -45,7 +45,7 @@ use \Ebay\Sell\Metadata\ObjectSerializer;
  */
 class ProductAdoptionPolicy implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -194,10 +194,10 @@ class ProductAdoptionPolicy implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function __construct(array $data = null)
     {
-        $this->container['category_id'] = $data['category_id'] ?? null;
-        $this->container['category_tree_id'] = $data['category_tree_id'] ?? null;
-        $this->container['exclusion'] = $data['exclusion'] ?? null;
-        $this->container['product_required'] = $data['product_required'] ?? null;
+        $this->container['category_id'] = isset($data['category_id']) ? $data['category_id'] : null;
+        $this->container['category_tree_id'] = isset($data['category_tree_id']) ? $data['category_tree_id'] : null;
+        $this->container['exclusion'] = isset($data['exclusion']) ? $data['exclusion'] : null;
+        $this->container['product_required'] = isset($data['product_required']) ? $data['product_required'] : null;
     }
 
     /**
@@ -340,7 +340,7 @@ class ProductAdoptionPolicy implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

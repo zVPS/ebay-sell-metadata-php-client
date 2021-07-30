@@ -44,7 +44,7 @@ use \Ebay\Sell\Metadata\ObjectSerializer;
  */
 class ItemConditionPolicy implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -193,10 +193,10 @@ class ItemConditionPolicy implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['category_id'] = $data['category_id'] ?? null;
-        $this->container['category_tree_id'] = $data['category_tree_id'] ?? null;
-        $this->container['item_condition_required'] = $data['item_condition_required'] ?? null;
-        $this->container['item_conditions'] = $data['item_conditions'] ?? null;
+        $this->container['category_id'] = isset($data['category_id']) ? $data['category_id'] : null;
+        $this->container['category_tree_id'] = isset($data['category_tree_id']) ? $data['category_tree_id'] : null;
+        $this->container['item_condition_required'] = isset($data['item_condition_required']) ? $data['item_condition_required'] : null;
+        $this->container['item_conditions'] = isset($data['item_conditions']) ? $data['item_conditions'] : null;
     }
 
     /**
@@ -339,7 +339,7 @@ class ItemConditionPolicy implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

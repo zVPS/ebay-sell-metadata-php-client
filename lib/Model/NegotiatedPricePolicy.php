@@ -44,7 +44,7 @@ use \Ebay\Sell\Metadata\ObjectSerializer;
  */
 class NegotiatedPricePolicy implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -198,11 +198,11 @@ class NegotiatedPricePolicy implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function __construct(array $data = null)
     {
-        $this->container['best_offer_auto_accept_enabled'] = $data['best_offer_auto_accept_enabled'] ?? null;
-        $this->container['best_offer_auto_decline_enabled'] = $data['best_offer_auto_decline_enabled'] ?? null;
-        $this->container['best_offer_counter_enabled'] = $data['best_offer_counter_enabled'] ?? null;
-        $this->container['category_id'] = $data['category_id'] ?? null;
-        $this->container['category_tree_id'] = $data['category_tree_id'] ?? null;
+        $this->container['best_offer_auto_accept_enabled'] = isset($data['best_offer_auto_accept_enabled']) ? $data['best_offer_auto_accept_enabled'] : null;
+        $this->container['best_offer_auto_decline_enabled'] = isset($data['best_offer_auto_decline_enabled']) ? $data['best_offer_auto_decline_enabled'] : null;
+        $this->container['best_offer_counter_enabled'] = isset($data['best_offer_counter_enabled']) ? $data['best_offer_counter_enabled'] : null;
+        $this->container['category_id'] = isset($data['category_id']) ? $data['category_id'] : null;
+        $this->container['category_tree_id'] = isset($data['category_tree_id']) ? $data['category_tree_id'] : null;
     }
 
     /**
@@ -369,7 +369,7 @@ class NegotiatedPricePolicy implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

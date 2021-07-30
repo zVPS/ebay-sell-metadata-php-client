@@ -45,7 +45,7 @@ use \Ebay\Sell\Metadata\ObjectSerializer;
  */
 class ProductAdoptionPolicyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -184,8 +184,8 @@ class ProductAdoptionPolicyResponse implements ModelInterface, ArrayAccess, \Jso
      */
     public function __construct(array $data = null)
     {
-        $this->container['product_adoption_policies'] = $data['product_adoption_policies'] ?? null;
-        $this->container['warnings'] = $data['warnings'] ?? null;
+        $this->container['product_adoption_policies'] = isset($data['product_adoption_policies']) ? $data['product_adoption_policies'] : null;
+        $this->container['warnings'] = isset($data['warnings']) ? $data['warnings'] : null;
     }
 
     /**
@@ -280,7 +280,7 @@ class ProductAdoptionPolicyResponse implements ModelInterface, ArrayAccess, \Jso
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

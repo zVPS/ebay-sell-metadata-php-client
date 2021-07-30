@@ -44,7 +44,7 @@ use \Ebay\Sell\Metadata\ObjectSerializer;
  */
 class ReturnPolicy implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -198,11 +198,11 @@ class ReturnPolicy implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['category_id'] = $data['category_id'] ?? null;
-        $this->container['category_tree_id'] = $data['category_tree_id'] ?? null;
-        $this->container['domestic'] = $data['domestic'] ?? null;
-        $this->container['international'] = $data['international'] ?? null;
-        $this->container['required'] = $data['required'] ?? null;
+        $this->container['category_id'] = isset($data['category_id']) ? $data['category_id'] : null;
+        $this->container['category_tree_id'] = isset($data['category_tree_id']) ? $data['category_tree_id'] : null;
+        $this->container['domestic'] = isset($data['domestic']) ? $data['domestic'] : null;
+        $this->container['international'] = isset($data['international']) ? $data['international'] : null;
+        $this->container['required'] = isset($data['required']) ? $data['required'] : null;
     }
 
     /**
@@ -369,7 +369,7 @@ class ReturnPolicy implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**
